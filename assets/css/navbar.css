@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header.barrasup {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #315067;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    top: 0;
+}
+
+header.icon-header {
+    padding: 40px;
+}
+
+nav.navbar {
+    width: 40px;
+    height: 100%;
+    background-color: #315067;
+    padding: 20px 0 20px 0.5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 0.2s;
+    box-shadow: 2px 0 0 #FF7C0D;
+}
+
+nav.navbar.expandir {
+    width: 200px;
+}
+
+.btn-expand {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 40px;
+}
+
+.btn-expand > i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    line-height: 40px;
+}
+
+ul li.item-menu {
+    transition: 0.5s;
+}
+
+ul li.ativo {
+    background-color: #4E6E87;
+    border-radius: 8px 0 0 8px;
+}
+
+ul li.item-menu:hover {
+    background: #4E6E87;
+    border-radius: 8px 0 0 8px;
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 30px;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+ul li.item-menu a .icon > i {
+    font-size: 18px;
+}
