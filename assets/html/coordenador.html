@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGE - Perfil</title>
-    <link rel="stylesheet" href="../css/cad_aluno.css">
+    <title>SGE - Alunos</title>
+    <link rel="stylesheet" href="../css/alunos.css">
 </head>
 <body>
     <div class="container">
@@ -28,7 +28,7 @@
                         <span class="txt-link">Inicio</span>
                     </a>
                 </li>
-                <li class="item-menu  ativo">
+                <li class="item-menu">
                     <a href="alunos.html">
                         <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
                         <span class="txt-link">Alunos</span>
@@ -46,7 +46,7 @@
                         <span class="txt-link">Turmas</span>
                     </a>
                 </li>
-                <li class="item-menu">
+                <li class="item-menu  ativo">
                     <a href="coordenador.html">
                         <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
                         <span class="txt-link">Coordenadores</span>
@@ -67,15 +67,49 @@
             </ul>
         </nav>
 
-        <!-- Navbar -->
         <main class="content">
-            <div class="barrareturn">
-                <a href="alunos.html"><i class="fa-solid fa-square-caret-left"></i></a>
-                <div class="btn-ad">
-                    <button class="btn" type="submit" id="limpar">Cancelar</button>
-                    <button class="btn" type="submit" id="filtrar">Salvar</button>
+            <div class="filtro">
+                <div class="inputs-container">
+                    <label class="itens-input">
+                        <p>Nome</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Matricula</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Turma</p>
+                        <input type="text">
+                    </label>
+                    
+                </div>
+                <div class="buttons-container">
+                    <button class="btn" type="submit" id="limpar">Limpar</button>
+                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
                 </div>
             </div>
+            
+            <div class="linha"></div>
+
+            <div class="btn-add">
+                <a href="cad_alunos.html"><button class="btn-addal" type="button">Adicionar aluno</button></a>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="listaaluno">
+
+                <div class="lista">
+                    <p>Nome</p>
+                    <p>Turma</p>
+                    <p>Responsável</p>
+                    <p>Telefone Responsável</p>
+                </div>
+            </div>
+            <div class="linha"></div>
+
+            
         </main>
         
     <script src="../JS/navbar.js"></script>
