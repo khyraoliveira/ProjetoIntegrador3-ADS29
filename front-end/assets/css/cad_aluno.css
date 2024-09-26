@@ -116,3 +116,142 @@ main.content{
 .barrareturn i{
     font-size: 30px;
 }
+
+.btn-ad button {
+    width: 81px;
+    height: 25px;
+    padding: 0;
+    border-radius: 6px;
+    background: #315067;
+    cursor: pointer;
+    color: white;
+    text-align: center; 
+    line-height: 25px;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+.return a {
+    color: #315067;
+    text-decoration: none;
+}
+
+.linha {
+    width: 100%;
+    max-width: 935px;
+    height: 1px;
+    background-color: #a7a7a7;;
+    margin: 15px;
+    opacity: 40%;
+}
+
+.dadoscadastrais{
+    width: 100%;
+    max-width: 935px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type="text"], select {
+    height: 24px;
+    border-radius: 3px;
+    background-color: #F2F2F2;
+    border: 1px solid #C7C7C7;
+    padding: 0 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 150px;
+}
+
+.al_nome input,
+.al_email input,
+.al_mae input,
+.al_responsavel input {
+    width: 224px;
+}
+
+input::placeholder {
+    font-size: 12px;
+    color: #888;
+}
+select {
+    font-size: 14px;
+    color: #888;
+}
+
+.linha01{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+.linha02{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+.linha03{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+.endereco{
+    width: 100%;
+    max-width: 935px;
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+.infos{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+.al_cep input{
+    width: 100px;
+}
+
+.al_logradouro input{
+    width: 300px;
+}
+
+.al_numerocs input{
+    width: 60px;
+}
+
+.al_complemento input{
+    width: 110px;
+}
+
+.al_bairro input{
+    width: 120px;
+}
+
+.al_municipio input{
+    width: 200px;
+}
