@@ -12,7 +12,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que a altura mínima ocupe toda a altura da viewport */
+    min-height: 100vh;
 }
 
 header.barrasup {
@@ -103,12 +103,12 @@ main.content {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    flex-grow: 1; /* Permite que o main.content se expanda conforme necessário */
+    flex-grow: 1;
 }
 
 .filtro {
-    width: 100%; /* Ajusta a largura ao tamanho da tela */
-    max-width: 935px; /* Define uma largura máxima */
+    width: 100%;
+    max-width: 935px;
     padding: 20px;
     border-radius: 7px;
     border: 1px solid #C0C0C0;
@@ -124,7 +124,7 @@ main.content {
 
 .inputs-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os inputs quebrem para a linha seguinte em telas menores */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -172,8 +172,8 @@ main.content {
 }
 
 .linha {
-    width: 100%; /* Ajusta a largura ao tamanho da tela */
-    max-width: 935px; /* Define uma largura máxima */
+    width: 100%;
+    max-width: 935px;
     height: 1px;
     background-color: #a7a7a7;;
     margin: 15px;
@@ -181,13 +181,13 @@ main.content {
 }
 
 .listaaluno {
-    width: 100%; /* Ajusta a largura ao tamanho da tela */
-    max-width: 935px; /* Define uma largura máxima */
+    width: 100%;
+    max-width: 935px;
 }
 
 .btn-add{
-    width: 100%; /* Ajusta a largura ao tamanho da tela */
-    max-width: 935px; /* Define uma largura máxima */
+    width: 100%;
+    max-width: 935px;
     display: flex;
     justify-content: flex-end;
     margin: 0px 0px 1px 0px;
