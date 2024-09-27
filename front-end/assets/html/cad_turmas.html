@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGE - Docentes</title>
-    <link rel="stylesheet" href="../css/docentes.css">
+    <title>SGE - Cadastrar Turmas</title>
+    <link rel="stylesheet" href="../css/cad_turmas.css">
 </head>
 <body>
     <div class="container">
@@ -24,8 +24,8 @@
             <ul>
                 <li class="item-menu">
                     <a href="inicio.html">
-                        <span ><i class="fa-solid fa-house"></i></span>
-                        <span class="txt-link">Inicio</span>
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
@@ -34,13 +34,13 @@
                         <span class="txt-link">Alunos</span>
                     </a>
                 </li>
-                <li class="item-menu ativo">
+                <li class="item-menu">
                     <a href="docentes.html">
                         <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         <span class="txt-link">Docentes</span>
                     </a>
                 </li>
-                <li class="item-menu">
+                <li class="item-menu  ativo">
                     <a href="turmas.html">
                         <span class="icon"><i class="fa-solid fa-building-user"></i></span>
                         <span class="txt-link">Turmas</span>
@@ -68,46 +68,60 @@
         </nav>
 
         <main class="content">
-            <div class="filtro">
-                <div class="inputs-container">
-                    <label class="itens-input">
-                        <p>Nome</p>
-                        <input type="text">
+            <div class="barrareturn">
+                <span class="return">
+                    <a href="turmas.html">
+                    <i class="fa-solid fa-square-caret-left"></i>
+                    </a>
+                </span>
+                <div class="btn-ad">
+                    <button class="btn" type="button" id="limpar">Cancelar</button>
+                    <button class="btn" type="submit" id="salvar">Salvar</button>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+            
+            <div class="dadoscadastrais">
+                <h3>Turmas</h3>
+                
+                <div class="matricula">
+                    <label class="tm_matricula">
+                        <p>Id turma </p>
+                        <input type="text" placeholder="">
                     </label>
-                    <label class="itens-input">
-                        <p>Matricula</p>
-                        <input type="text">
-                    </label>
-                    <label class="itens-input">
+                </div>
+                <!-- Linha01: turma, ano, obs -->
+                <div class="linha01">
+                    <label class="tm_nome">
                         <p>Turma</p>
-                        <input type="text">
+                        <input type="text" placeholder="Ex.: 025AM">
                     </label>
-                    
+                    <label class="tm_ano">
+                        <p>Ano</p>
+                        <input type="text" placeholder="Ex.: 2024">
+                    </label>
+                
+                    <label class="tm_obs">
+                        <p>Observação</p>
+                        <input type="text" placeholder="Ex.: Turma destinada a alunos autodidatas">
+                    </label>
                 </div>
-                <div class="buttons-container">
-                    <button class="btn" type="submit" id="limpar">Limpar</button>
-                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
+                
+                <!-- Linha03: Disciplina -->   
+                <div class="linha03">
+                    <label class="tm_disciplina">
+                        <p>Disciplinas</p>
+                        <select name="disciplinas" id="tm_disciplina">
+                            <option value="null">Selecione as disciplinas</option>
+                            <!-- Adicionar opções -->
+                        </select>
+                    </label>
+                </div>
+                <div class="filtro_turma">
+                    <!-- Filtro para turmas, se necessário -->
                 </div>
             </div>
-            
-            <div class="linha"></div>
-
-            <div class="btn-add">
-                <a href="cad_docentes.html"><button class="btn-addal" type="button">Adicionar docentes</button></a>
-            </div>
-
-            <div class="linha"></div>
-
-            <div class="listaaluno">
-
-                <div class="lista">
-                    <p>Nome</p>
-                    <p>Disciplinas</p>
-                </div>
-            </div>
-            <div class="linha"></div>
-
-            
         </main>
         
     <script src="../JS/navbar.js"></script>

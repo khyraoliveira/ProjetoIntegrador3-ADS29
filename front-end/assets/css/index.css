@@ -174,3 +174,14 @@ label i {
     margin-left: 0;
     padding-left: 0;
   }
+
+  select {
+    height: 24px;
+    border-radius: 13px;
+    background-color: #F2F2F2;
+    border: 1px solid #C7C7C7;
+    padding: 0 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 359px;
+}

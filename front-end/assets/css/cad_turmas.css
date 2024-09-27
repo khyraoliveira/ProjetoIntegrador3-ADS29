@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -23,6 +22,7 @@ header.barrasup {
     padding: 10px;
     color: white;
     font-size: 20px;
+    top: 0;
 }
 
 header.icon-header {
@@ -97,9 +97,6 @@ ul li.item-menu a .txt-link {
 ul li.item-menu a .icon > i {
     font-size: 18px;
 }
-
-
-
 main.content {
     display: flex;
     flex-direction: column;
@@ -142,6 +139,7 @@ main.content {
     max-width: 935px;
     height: 3px;
     background: #FF7C0D;
+    margin: 15px;
 }
 
 .dadoscadastrais {
@@ -161,7 +159,6 @@ main.content {
     align-items: flex-end;
     width: 100%;
 }
-
 .matricula p {
     text-align: left;
     width: 100%;
@@ -181,8 +178,7 @@ main.content {
     background: #828282;
 }
 
-
-input[type="text"], input[type="password"], select {
+input[type="text"], select {
     height: 24px;
     border-radius: 3px;
     background-color: #F2F2F2;
@@ -193,20 +189,8 @@ input[type="text"], input[type="password"], select {
     width: 160px;
 }
 
-input[type="password"]{
-    width: 70px;
-}
-
-.dc_nome input,
-.dc_email input,
-.dc_mae input,
-.dc_responsavel input {
-    width: 224px;
-}
-
-input::placeholder {
-    font-size: 12px;
-    color: #888;
+.tm_obs input{
+    width: 405px;
 }
 
 select {
@@ -215,54 +199,16 @@ select {
     color: #888;
 }
 
-.linha01, .linha02, .linha03 {
+.linha01, .linha03 {
     display: flex;
     flex-direction: row;
     padding: 20px;
     gap: 20px;
 }
 
-.endereco {
-    width: 100%;
-    max-width: 935px;
-    padding: 20px;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    color: #717171;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.infos {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    gap: 20px;
-}
-
-.dc_cep input {
-    width: 100px;
-}
-
-.dc_logradouro input {
-    width: 300px;
-}
-
-.dc_numerocs input {
-    width: 60px;
-}
-
-.dc_complemento input {
-    width: 110px;
-}
-
-.dc_bairro input {
-    width: 120px;
-}
-
-.dc_municipio input {
-    width: 200px;
+input::placeholder {
+    font-size: 12px;
+    color: #888;
 }
 
 .filtro_turma {
