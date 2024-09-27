@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Cadastrar Docentes</title>
+    <link rel="stylesheet" href="../css/cad_docentes.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <span class="icon-hd"><i class="fa-solid fa-bell"></i></span>
+                <span class="icon-hd"><i class="fa-solid fa-comment-dots"></i></span>
+            </div>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="btn-expand">
+                <i class="fa-solid fa-bars" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li class="item-menu">
+                    <a href="inicio.html">
+                        <span ><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Início</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="alunos.html">
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="txt-link">Alunos</span>
+                    </a>
+                </li>
+                <li class="item-menu ativo">
+                    <a href="docentes.html">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="txt-link">Docentes</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="turmas.html">
+                        <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="txt-link">Turmas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="coordenador.html">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="txt-link">Coordenadores</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="../../index.html">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="barrareturn">
+                <span class="return">
+                    <a href="alunos.html">
+                    <i class="fa-solid fa-square-caret-left"></i>
+                    </a>
+                </span>
+                <div class="btn-ad">
+                    <button class="btn" type="button" id="limpar">Cancelar</button>
+                    <button class="btn" type="submit" id="salvar">Salvar</button>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+            
+            <div class="dadoscadastrais">
+                <h3>Dados Cadastrais</h3>
+                
+                <div class="matricula">
+                    <label class="dc_matricula">
+                        <p>Matrícula</p>
+                        <input type="text" placeholder="">
+                    </label>
+                </div>
+                <!-- Linha01: Nome, CPF, Gênero e Data de Nascimento -->
+                <div class="linha01">
+                    <label class="dc_nome">
+                        <p>Nome</p>
+                        <input type="text" placeholder="Nome completo">
+                    </label>
+                    <label class="dc_cpf">
+                        <p>CPF</p>
+                        <input type="text" placeholder="000.000.000-00">
+                    </label>
+                    <label class="dc_genero">
+                        <p>Gênero</p>
+                        <select name="genero" id="dc_genero">
+                            <option value="null">...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                        </select>
+                    </label>
+                    <label class="dc_nascimento">
+                        <p>Data de nascimento</p>
+                        <input type="text" placeholder="Ex.: 00/00/0000">
+                    </label>
+                </div>
+
+                <!-- Linha02: E-mail, Número 01, Número 02, Senha, Turma -->
+                <div class="linha02">
+                    <label class="dc_email">
+                        <p>E-mail</p>
+                        <input type="text" placeholder="Digite o e-mail">
+                    </label>
+                    <label class="dc_numero01">
+                        <p>Número 01</p>
+                        <input type="text" placeholder="Ex.: (00) 0.0000-0000">
+                    </label>
+                    <label class="dc_numero02">
+                        <p>Número 02</p>
+                        <input type="text" placeholder="Ex.: (00) 0.0000-0000">
+                    </label>
+                    <label class="dc_senha">
+                        <p>Senha</p>
+                        <input type="password" placeholder="Senha">
+                    </label>
+                    <label class="dc_turma">
+                        <p>Turma</p>
+                        <select name="turma" id="dc_turma">
+                            <option value="null">Selecione a turma</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="filtro_turma">
+                    
+                </div>
+
+                <!-- Linha03: Disciplina -->
+                <div class="linha03">
+                    <label class="dc_disciplina">
+                        <p>Turno</p>
+                        <select name="turno" id="dc_disciplina">
+                            <option value="null">Selecione o turno</option>
+                            <option value="manha">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="linha"></div>
+            <!-- Endereço -->
+
+            <div class="endereco">
+                <h3>Endereço</h3>
+                <div class="infos">
+                    <label class="dc_cep">
+                        <p>CEP</p>
+                        <input type="text" placeholder="Ex.: 00000-000">
+                    </label>
+                    <label class="dc_logradouro">
+                        <p>Logradouro</p>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="dc_numerocs">
+                        <p>Número</p>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="dc_complemento">
+                        <p>Complemento</p>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="dc_bairro">
+                        <p>Bairro</p>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="dc_municipio">
+                        <p>Município</p>
+                        <input type="text" placeholder="">
+                    </label>
+                </div>
+            </div>
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+</body>
+</html>
