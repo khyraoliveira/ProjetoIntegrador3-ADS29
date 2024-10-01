@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
-    background-color: #315067;
+    background-image: url(../images/Senac_Crato.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     margin: 0;
     padding: 0;
     position: relative;
@@ -24,12 +27,23 @@ body {
     width: 359px;
     height: 510px;
     padding: 10px;
-    background-color: #C6CAD0;
+    background-color: #f8f8f8;
     border-radius: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: #315067;
+    
+}
+
+.login img {
+  margin-bottom: 50px;
+  width: 150px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn {
