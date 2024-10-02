@@ -544,3 +544,128 @@ select {
 .tm_obs input{
     width: 405px;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #315067;
+    color: #fff;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table th {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+table td a {
+    color: #315067;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+#modalCoordenador {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; /* Inicialmente escondido */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #315067;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #333;
+}
+
+.modal-content button {
+    background-color: #315067;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.modal-content button:hover {
+    background-color: #315067;
+}
+
+/* Botão fechar no modal */
+#fecharModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+#fecharModal:hover {
+    color: #315067;
+}
+
+.addCoordenador, .editCoordenadorBtn, .deleteCoordenadorBtn {
+    padding: 1px 5px;
+    border-radius: 6px;
+    background: #315067;
+    cursor: pointer;
+    color: white;
+    text-align: center; 
+    line-height: 25px;
+    font-size: 14px;
+    font-style: normal;
+}
