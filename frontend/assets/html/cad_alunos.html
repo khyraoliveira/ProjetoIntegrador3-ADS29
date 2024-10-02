@@ -76,7 +76,7 @@
                 </span>
                 <div class="btn-ad">
                     <button class="btn" type="submit" id="limpar">Cancelar</button>
-                    <button class="btn" type="submit" id="filtrar">Salvar</button>
+                    <button class="btn" type="submit" id="salvar">Salvar</button>
                 </div>
             </div>
 
@@ -87,12 +87,16 @@
                 <!-- Linha01: Nome, CPF, Gênero e Data de Nascimento -->
                 <div class="linha01">
                     <label for="" class="al_nome">
-                        <p>Nome</p>
-                        <input type="text" placeholder="Nome completo">
+                        <p>Primeiro(s) nome(s)</p>
+                        <input type="text" placeholder="Nome completo" id="nome">
+                    </label>
+                    <label for="" class="al_nome"></label>
+                        <p>Último(s) nome(s)</p>
+                        <input type="text" placeholder="Nome completo" id="ultimoNome">
                     </label>
                     <label for="" class="al_cpf">
                         <p>CPF</p>
-                        <input type="text" placeholder="000.000.000-00">
+                        <input type="text" placeholder="apenas números" id="cpf">
                     </label>
                     <label class="al_genero">
                         <p>Gênero</p>
@@ -104,7 +108,7 @@
                     </label>
                     <label class="al_nascimento">
                         <p>Data de nascimento</p>
-                        <input type="text" placeholder="Ex.:00/00/0000">
+                        <input type="date" id="data_nascimento">
                     </label>
                 </div>
 
@@ -112,41 +116,43 @@
                 <div class="linha02">
                     <label class="al_email">
                         <p>E-mail</p>
-                        <input type="text" placeholder="Digite o e-mail">
+                        <input type="text" placeholder="Digite o e-mail" id="email">
                     </label>
                     <label class="al_turma">
                         <p>Turma</p>
                         <select name="aluno" id="al_turma">
-                            <option value="turma">Selecione turma </option>
+                            <option value="null">Selecione turma </option>
+
                         </select>
-                    </label>
-                    <label class="al_turno">
-                        <p>Turno</p>
-                        <select name="al_tunro" id="al_turno">
-                            <option value="turno">Selecione turno  </option>
-                            <option value="manha">Manhã</option>
-                            <option value="tarde">Tarde</option>
-                        </select>
-                    </label>
-                    <label class="al_mae">
-                        <p>Nome da mãe</p>
-                        <input type="text" placeholder="Nome completo da mãe">
                     </label>
                 </div>
 
                  <!-- Linha03: Responsável e contatos -->
+                  <h3>Responsável</h3>
                 <div class="linha03">
                     <label class="al_responsavel">
-                        <p>Responsável</p>
-                        <input type="text" placeholder="Nome do responsável">
+                        <p>Primeiro(s) nome(s)</p>
+                        <input type="text" placeholder="Nome do responsável" id="nome_responsavel">
+                    </label>
+                    <label class="al_responsavel"></label>
+                        <p>Segundo(s) nome(s)</p>
+                        <input type="text" placeholder="Nome do responsável" id="ultimoNomeR">
                     </label>
                     <label class="al_numero01">
-                        <p>Número 01</p>
-                        <input type="text" placeholder="Ex.: (00) 0.0000-0000">
+                        <p>CPF</p>
+                        <input type="text" id="cpfResponsavel">
                     </label>
                     <label class="al_numero02">
-                        <p>Número 02</p>
-                        <input type="text" placeholder="Ex.: (00) 0.0000-0000">
+                        <p>DDD</p>
+                        <input type="text" id="dddResponsavel">
+                    </label>
+                    <label class="al_numero01"></label>
+                        <p>Telefone</p>
+                        <input type="text" id="numeroResponsavel">
+                    </label>
+                    <label class="al_numero02">
+                        <p>Grau de Parentesco</p>
+                        <input type="text" placeholder="Ex.: Mãe" id="grauParentesco">
                     </label>
                 </div>
             </div>
@@ -157,28 +163,57 @@
                     <div class="infos">
                         <label class="al_cep">
                             <p>CEP</p>
-                            <input type="text" placeholder="Ex.: 00000-000">
+                            <input type="text" id="cep">
                         </label>
                         <label class="al_logradouro">
-                            <p>Logradouro</p>
-                            <input type="text" placeholder="">
+                            <p>Rua</p>
+                            <input type="text" placeholder="" id="rua">
                         </label>
                         <label class="al_numerocs">
                             <p>Número</p>
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" id="numero">
                         </label>
                         <label class="al_complemento">
-                            <p>Complemento</p>
-                            <input type="text" placeholder="">
+                            <p>Bairro</p>
+                            <input type="text" placeholder="" id="bairro">
                         </label>
                         <label class="al_bairro">
-                            <p>Bairro</p>
-                            <input type="text" placeholder="">
+                            <p>Cidade</p>
+                            <input type="text" placeholder="" id="cidade">
                         </label>
                         <label class="al_municipio">
-                            <p>Município</p>
-                            <input type="text" placeholder="">
-                        </label>
+                            <p>Estado</p>
+                            <select id="estado">
+                                <option value="null">Selecione o estado</option>
+                                <option value="Acre">Acre</option>
+                                <option value="Alagoas">Alagoas</option>
+                                <option value="Amapá">Amapá</option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Bahia">Bahia</option>
+                                <option value="Ceará">Ceará</option>
+                                <option value="Distrito Federal">Distrito Federal</option>
+                                <option value="Espírito Santo">Espírito Santo</option>
+                                <option value="Goiás">Goiás</option>
+                                <option value="Maranhão">Maranhão</option>
+                                <option value="Mato Grosso">Mato Grosso</option>
+                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                <option value="Minas Gerais">Minas Gerais</option>
+                                <option value="Pará">Pará</option>
+                                <option value="Paraíba">Paraíba</option>
+                                <option value="Paraná">Paraná</option>
+                                <option value="Pernambuco">Pernambuco</option>
+                                <option value="Piauí">Piauí</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                <option value="Rondônia">Rondônia</option>
+                                <option value="Roraima">Roraima</option>
+                                <option value="Santa Catarina">Santa Catarina</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sergipe">Sergipe</option>
+                                <option value="Tocantins">Tocantins</option>
+                            </select>
+                        </label> 
                     </div>
 
             </div>
@@ -186,5 +221,7 @@
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/cad_alunos.js"></script>
 </body>
 </html>
+    
