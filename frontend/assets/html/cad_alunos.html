@@ -87,20 +87,16 @@
                 <!-- Linha01: Nome, CPF, Gênero e Data de Nascimento -->
                 <div class="linha01">
                     <label for="" class="al_nome">
-                        <p>Primeiro(s) nome(s)</p>
-                        <input type="text" placeholder="Nome completo" id="nome">
+                        <p>Primeiro nome</p>
+                        <input type="text" placeholder="Primeiro nome" id="nome">
                     </label>
-                    <label for="" class="al_nome"></label>
-                        <p>Último(s) nome(s)</p>
-                        <input type="text" placeholder="Nome completo" id="ultimoNome">
-                    </label>
-                    <label for="" class="al_nome">
-                        <p>Nome</p>
-                        <input type="text" placeholder="Nome completo">
+                    <label for="" class="al_sobrenome">
+                        <p>Sobrenome</p>
+                        <input type="text" placeholder="Sobrenome" id="sobrenome">
                     </label>
                     <label for="" class="al_cpf">
                         <p>CPF</p>
-                        <input type="text" placeholder="apenas números" id="cpf">
+                        <input type="text" placeholder="Apenas números" id="cpf">
                     </label>
                     <label class="al_genero">
                         <p>Gênero</p>
@@ -109,10 +105,6 @@
                             <option value="Masculino">Masculino</option>
                             <option value="Feminio">Feminino</option>
                         </select>
-                    </label>
-                    <label class="al_nascimento">
-                        <p>Data de nascimento</p>
-                        <input type="date" id="data_nascimento">
                     </label>
                 </div>
 
@@ -129,36 +121,41 @@
 
                         </select>
                     </label>
+                    <label class="al_nascimento">
+                        <p>Data de nascimento</p>
+                        <input type="date" id="data_nascimento">
+                    </label>    
                 </div>
 
-                 <!-- Linha03: Responsável e contatos -->
+                 <!-- Linha03: Informações Responsável -->
                   <h3>Responsável</h3>
                 <div class="linha03">
                     <label class="al_responsavel">
-                        <p>Primeiro(s) nome(s)</p>
-                        <input type="text" placeholder="Nome do responsável" id="nome_responsavel">
+                        <p>Primeiro nome</p>
+                        <input type="text" placeholder="Ex.: Maria " id="nome_responsavel">
                     </label>
-                    <label class="al_responsavel"></label>
-                        <p>Segundo(s) nome(s)</p>
-                        <input type="text" placeholder="Nome do responsável" id="ultimoNomeR">
+                    <label class="al_responsavel">
+                        <p>Sobrenome</p>
+                        <input type="text" placeholder="Sobrenome, ex.: Silva" id="ultimoNomeR">
                     </label>
                     <label class="al_numero01">
                         <p>CPF</p>
-                        <input type="text" id="cpfResponsavel">
+                        <input type="text" placeholder="Apenas números" id="cpfResponsavel" maxlength="11">
                     </label>
-                </div>
-                <div class="linha03">
-                    <label class="al_numero02">
-                        <p>DDD</p>
-                        <input type="text" id="dddResponsavel">
-                    </label>
-                    <label class="al_numero01"></label>
-                        <p>Telefone</p>
-                        <input type="text" id="numeroResponsavel">
-                    </label>
-                    <label class="al_numero02">
+                    <label class="al_parente">
                         <p>Grau de Parentesco</p>
                         <input type="text" placeholder="Ex.: Mãe" id="grauParentesco">
+                    </label>
+                </div>
+                <!-- Linha04: Contatos Responsáveis -->
+                <div class="linha04">
+                    <label class="al_ddd">
+                        <p>DDD</p>
+                        <input type="text" placeholder="Ex.: 81" id="dddResponsavel">
+                    </label>
+                    <label class="al_numero01">
+                        <p>Telefone</p>
+                        <input type="text" id="numeroResponsavel" maxlength="9">
                     </label>
                 </div>
             </div>
@@ -169,7 +166,7 @@
                     <div class="infos">
                         <label class="al_cep">
                             <p>CEP</p>
-                            <input type="text" id="cep">
+                            <input type="text" id="cep" maxlength="8">
                         </label>
                         <label class="al_logradouro">
                             <p>Rua</p>
@@ -179,46 +176,47 @@
                             <p>Número</p>
                             <input type="text" placeholder="" id="numero">
                         </label>
-                        <label class="al_complemento">
+                        <label class="al_bairro">
                             <p>Bairro</p>
                             <input type="text" placeholder="" id="bairro">
                         </label>
-                        <label class="al_bairro">
+                        <label class="al_cidade">
                             <p>Cidade</p>
                             <input type="text" placeholder="" id="cidade">
                         </label>
-                        <label class="al_municipio">
-                            <p>Estado</p>
+                        <label class="al_estado">
+                            <p>UF</p>
                             <select id="estado">
-                                <option value="null">Selecione o estado</option>
-                                <option value="Acre">Acre</option>
-                                <option value="Alagoas">Alagoas</option>
-                                <option value="Amapá">Amapá</option>
-                                <option value="Amazonas">Amazonas</option>
-                                <option value="Bahia">Bahia</option>
-                                <option value="Ceará">Ceará</option>
-                                <option value="Distrito Federal">Distrito Federal</option>
-                                <option value="Espírito Santo">Espírito Santo</option>
-                                <option value="Goiás">Goiás</option>
-                                <option value="Maranhão">Maranhão</option>
-                                <option value="Mato Grosso">Mato Grosso</option>
-                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                                <option value="Minas Gerais">Minas Gerais</option>
-                                <option value="Pará">Pará</option>
-                                <option value="Paraíba">Paraíba</option>
-                                <option value="Paraná">Paraná</option>
-                                <option value="Pernambuco">Pernambuco</option>
-                                <option value="Piauí">Piauí</option>
-                                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                                <option value="Rondônia">Rondônia</option>
-                                <option value="Roraima">Roraima</option>
-                                <option value="Santa Catarina">Santa Catarina</option>
-                                <option value="São Paulo">São Paulo</option>
-                                <option value="Sergipe">Sergipe</option>
-                                <option value="Tocantins">Tocantins</option>
+                                <option value="null"></option>
+                                <option value="Acre">AC</option>
+                                <option value="Alagoas">AL</option>
+                                <option value="Amapá">AP</option>
+                                <option value="Amazonas">AM</option>
+                                <option value="Bahia">BA</option>
+                                <option value="Ceará">CE</option>
+                                <option value="Distrito Federal">DF</option>
+                                <option value="Espírito Santo">ES</option>
+                                <option value="Goiás">GO</option>
+                                <option value="Maranhão">MA</option>
+                                <option value="Mato Grosso">MT</option>
+                                <option value="Mato Grosso do Sul">MS</option>
+                                <option value="Minas Gerais">MG</option>
+                                <option value="Pará">PA</option>
+                                <option value="Paraíba">PB</option>
+                                <option value="Paraná">PR</option>
+                                <option value="Pernambuco">PE</option>
+                                <option value="Piauí">PI</option>
+                                <option value="Rio de Janeiro">RJ</option>
+                                <option value="Rio Grande do Norte">RN</option>
+                                <option value="Rio Grande do Sul">RS</option>
+                                <option value="Rondônia">RO</option>
+                                <option value="Roraima">RR</option>
+                                <option value="Santa Catarina">SC</option>
+                                <option value="São Paulo">SP</option>
+                                <option value="Sergipe">SE</option>
+                                <option value="Tocantins">TO</option>
                             </select>
+                            
                         </label> 
                     </div>
 

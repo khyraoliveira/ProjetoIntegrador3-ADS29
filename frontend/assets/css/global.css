@@ -17,7 +17,7 @@ body {
 
 header.barrasup {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color: #315067;
     padding: 10px;
     color: white;
@@ -105,6 +105,23 @@ main.content {
     padding: 20px;
     flex-grow: 1;
 }
+.paginaref{
+    width: 935px;
+    padding: 15px;
+    color: #4E6E87;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+}
+
+  .icon-header img {     
+    width: 100px;
+    height: auto;
+  }
 
 .filtro {
     width: 100%;
@@ -193,7 +210,9 @@ main.content {
     margin: 0px 0px 1px 0px;
 }
 
-.btn-addal{
+.btn-addal,
+.addCoordenador,
+.addTurma{
     width: 130px;
     height: 25px;
     padding: 0;
@@ -209,7 +228,9 @@ main.content {
     line-height: normal;
     font-family: 'Inter', sans-serif;
 }
-
+.addCoordenador{
+    width: 150px;
+}
 .lista{
     display: flex;
     justify-content: space-evenly;
@@ -296,33 +317,6 @@ main.content_cad {
     font-weight: 500;
 }
 
-.matricula {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;
-}
-
-.matricula p {
-    text-align: left;
-    width: 100%;
-    color: #717171;
-    font-family: Inter;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.matricula input[type="text"]{
-    width: 90px;
-    height: 20px;
-    border-radius: 5px;
-    border: 1px solid #C7C7C7;
-    background: #828282;
-}
-
-
 input[type="text"], input[type="password"], select {
     height: 24px;
     border-radius: 3px;
@@ -338,12 +332,6 @@ input[type="password"]{
     width: 70px;
 }
 
-.dc_nome input,
-.dc_email input,
-.dc_mae input,
-.dc_responsavel input {
-    width: 224px;
-}
 
 input::placeholder {
     font-size: 12px;
@@ -382,30 +370,6 @@ select {
     gap: 20px;
 }
 
-.dc_cep input {
-    width: 100px;
-}
-
-.dc_logradouro input {
-    width: 300px;
-}
-
-.dc_numerocs input {
-    width: 60px;
-}
-
-.dc_complemento input {
-    width: 110px;
-}
-
-.dc_bairro input {
-    width: 120px;
-}
-
-.dc_municipio input {
-    width: 200px;
-}
-
 .filtro_turma {
     display: flex;
     gap: 10px;
@@ -436,12 +400,10 @@ select {
     color: #717171;
     font-size: 14px;
     font-weight: 500;
-    font-style: normal;
-    line-height: normal;
-    font-family: 'Inter', sans-serif;
+
 }
 
-input[type="text"], select {
+input[type="text"], [type="date"], select {
     height: 24px;
     border-radius: 3px;
     background-color: #F2F2F2;
@@ -452,37 +414,15 @@ input[type="text"], select {
     width: 150px;
 }
 
-.al_nome input,
-.al_email input,
-.al_mae input,
-.al_responsavel input {
-    width: 224px;
-}
-
 input::placeholder {
     font-size: 12px;
     color: #888;
 }
-select {
-    font-size: 14px;
-    color: #888;
-}
 
-.linha01{
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    gap: 20px;
-}
-
-.linha02{
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    gap: 20px;
-}
-
-.linha03{
+.linha01,
+.linha02,
+.linha03,
+.linha04{
     display: flex;
     flex-direction: row;
     padding: 20px;
@@ -511,6 +451,17 @@ select {
     gap: 20px;
 }
 
+.al_email input{
+    width: 224px;
+}
+
+.al_ddd input{
+    width: 55px;
+}
+
+.al_parente input{
+    width: 80px;
+}
 .al_cep input{
     width: 100px;
 }
@@ -534,6 +485,9 @@ select {
 .al_municipio input{
     width: 200px;
 }
+.dc_senha input{
+width: 100px;
+}
 
 select {
     width: 100%;
@@ -544,14 +498,14 @@ select {
 .tm_obs input{
     width: 405px;
 }
-
+/* modal*/
 table {
-    width: 100%;
+    width: 935px;
     border-collapse: collapse;
     background-color: #fff;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -578,7 +532,11 @@ table tbody tr:hover {
 }
 
 table th {
-    font-size: 16px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -660,14 +618,12 @@ table td a:hover {
 
 .editAlunoBtn,
 .deleteAlunoBtn,
-.addCoordenador, 
 .editCoordenadorBtn, 
 .deleteCoordenadorBtn,
 .editDisciplinaBtn,
 .deleteDisciplinaBtn,
 .editProfessorBtn,
 .deleteProfessorBtn,
-.addTurma,
 .editTurmaBtn,
 .deleteTurmaBtn {
     padding: 1px 5px;
