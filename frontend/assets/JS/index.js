@@ -1,4 +1,3 @@
-// Simulação de um banco de dados de usuários com cargos
 const usuarios = [
   { matricula: '123456', senha: 'senha123', cargo: 'Professor' },
   { matricula: '654321', senha: 'senha123', cargo: 'Coordenador' }
@@ -36,8 +35,12 @@ function verificarLogin(event) {
 
   // Verifica se o usuário foi encontrado
   if (usuarioEncontrado) {
-    // Redireciona para a página inicial se o login for bem-sucedido
-    window.location.href = './assets/html/inicio.html';
+    // Verifica o cargo do usuário e redireciona para a página correspondente
+    if (usuarioEncontrado.cargo === 'Professor') {
+      window.location.href = './assets/html/inicio_pro.html';
+    } else if (usuarioEncontrado.cargo === 'Coordenador') {
+      window.location.href = './assets/html/inicio.html';
+    }
   } else {
     // Exibe uma mensagem de erro se as credenciais ou cargo estiverem incorretos
     alert('Matrícula, senha ou cargo incorretos.');

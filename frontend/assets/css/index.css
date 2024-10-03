@@ -27,13 +27,14 @@ body {
     width: 359px;
     height: 510px;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: #e4e4e4;
     border-radius: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: #315067;
+    box-shadow: 5px 5px 20px #000000;
+    
     
 }
 
