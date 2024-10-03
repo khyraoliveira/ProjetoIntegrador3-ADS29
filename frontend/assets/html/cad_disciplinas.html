@@ -85,30 +85,24 @@
             <div class="dadoscadastrais">
                 <h3>Disciplina</h3>
                 
-                <div class="matricula">
-                    <label class="tm_matricula">
-                        <p>Id disciplina </p>
-                        <input type="text" placeholder="">
-                    </label>
-                </div>
                 <!-- Linha01: turma, ano, obs -->
                 <div class="linha01">
-                    <label class="tm_nome">
-                        <p>Disciplina</p>
-                        <input type="text" placeholder="Ex.: GEO462">
-                    </label>
-                    <label class="tm_disciplina">
-                        <p>Docente</p>
-                        <select name="disciplinas" id="tm_disciplina">
-                            <option value="null">Selecione docente</option>
-                            <!-- Adicionar opções -->
-                        </select>
-                    </label>
+                    <label for="nome">Nome da Disciplina</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="cargaHoraria">Carga Horária</label>
+                    <input type="number" id="cargaHoraria" name="cargaHoraria" required>
+
+                    <label for="professorId">Professor</label>
+                    <select id="professorId" name="professorId" required>
+                        <option value="null">Selecione o professor</option>
+                    </select>
+
+                    <label for="turmaId">Turma</label>
+                    <select id="turmaId" name="turmaId" required>
+                        <option value="null">Selecione a turma</option>
+                    </select>
                 
-                    <label class="tm_obs">
-                        <p>Observação</p>
-                        <input type="text" placeholder="Ex.: Turma destinada a alunos autodidatas">
-                    </label>
                 </div>
                 
             </div>
@@ -116,5 +110,6 @@
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/cad_disciplinas.js"></script>
 </body>
 </html>

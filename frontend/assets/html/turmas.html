@@ -24,7 +24,7 @@
             <ul>
                 <li class="item-menu">
                     <a href="inicio.html">
-                        <span ><i class="fa-solid fa-house"></i></span>
+                        <span><i class="fa-solid fa-house"></i></span>
                         <span class="txt-link">Inicio</span>
                     </a>
                 </li>
@@ -40,7 +40,7 @@
                         <span class="txt-link">Docentes</span>
                     </a>
                 </li>
-                <li class="item-menu  ativo">
+                <li class="item-menu ativo">
                     <a href="turmas.html">
                         <span class="icon"><i class="fa-solid fa-building-user"></i></span>
                         <span class="txt-link">Turmas</span>
@@ -68,45 +68,76 @@
         </nav>
 
         <main class="content">
+            <!-- Filtro -->
             <div class="filtro">
                 <div class="inputs-container">
                     <label class="itens-input">
-                        <p>Turma</p>
+                        <p>Nome da Turma</p>
                         <input type="text">
                     </label>
                     <label class="itens-input">
                         <p>Turno</p>
                         <input type="text">
                     </label>
-                    
                 </div>
                 <div class="buttons-container">
                     <button class="btn" type="submit" id="limpar">Limpar</button>
                     <button class="btn" type="submit" id="filtrar">Filtrar</button>
                 </div>
             </div>
-            
-            <div class="linha"></div>
 
+            <div class="linha"></div>
+            
             <div class="btn-add">
-                <a href="cad_turmas.html"><button class="btn-addal" type="button">Adicionar turma</button></a>
+                <a href="cad_turmas.html"><button class="addTurma" type="button">Adicionar Turma</button></a>
             </div>
 
             <div class="linha"></div>
 
-            <div class="listaaluno">
+            <!-- Tabela de Turmas -->
+            <div class="listaturmas">
+                <table border="1" id="tabelaTurmas">
+                    <thead>
+                        <tr>
+                            <th>Nome da Turma</th>
+                            <th>Ano Escolar</th>
+                            <th>Turno</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaTurmas">
+                        <!-- Os dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
 
-                <div class="lista">
-                    <p>Turma</p>
-                    <p>Turno</p>
+            <!-- Modal para Editar Turma -->
+            <div id="modalTurma" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" id="fecharModal">&times;</span>
+                    <h2 id="modalTitleTurma">Editar Turma</h2>
+                    <form id="turmaForm">
+                        <label for="nomeTurma">Nome da Turma:</label>
+                        <input type="text" id="nomeTurma" name="nomeTurma" required>
+
+                        <label for="anoLetivo">Ano Letivo:</label>
+                        <input type="number" id="anoLetivo" name="anoLetivo" required>
+
+                        <label for="anoEscolar">Ano Escolar:</label>
+                        <input type="text" id="anoEscolar" name="anoEscolar" required>
+
+                        <label for="turno">Turno:</label>
+                        <input type="text" id="turno" name="turno" required>
+
+                        <button type="submit" class="btn">Salvar Alterações</button>
+                    </form>
                 </div>
             </div>
-            <div class="linha"></div>
 
-            
         </main>
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/turma.js"></script>
 </body>
 </html>

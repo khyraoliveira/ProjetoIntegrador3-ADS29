@@ -85,46 +85,40 @@
             <div class="dadoscadastrais">
                 <h3>Turmas</h3>
                 
-                <div class="matricula">
-                    <label class="tm_matricula">
-                        <p>Id turma </p>
-                        <input type="text" placeholder="">
-                    </label>
-                </div>
                 <!-- Linha01: turma, ano, obs -->
                 <div class="linha01">
                     <label class="tm_nome">
-                        <p>Turma</p>
-                        <input type="text" placeholder="Ex.: 025AM">
+                        <p>Ano Letivo</p>
+                        <input type="number" placeholder="Ex.: 2024" id="anoLetivo">
                     </label>
                     <label class="tm_ano">
-                        <p>Ano</p>
-                        <input type="text" placeholder="Ex.: 2024">
-                    </label>
-                
-                    <label class="tm_obs">
-                        <p>Observação</p>
-                        <input type="text" placeholder="Ex.: Turma destinada a alunos autodidatas">
-                    </label>
-                </div>
-                
-                <!-- Linha03: Disciplina -->   
-                <div class="linha03">
-                    <label class="tm_disciplina">
-                        <p>Disciplinas</p>
-                        <select name="disciplinas" id="tm_disciplina">
-                            <option value="null">Selecione as disciplinas</option>
-                            <!-- Adicionar opções -->
+                        <p>Ano Escolar</p>
+                        <select name="anoEscolar" id="anoEscolar">
+                            <option value="null">Selecione o ano</option>
+                            <option value="1">1º ano</option>
+                            <option value="2">2º ano</option>
+                            <option value="3">3º ano</option>
                         </select>
                     </label>
-                </div>
-                <div class="filtro_turma">
-                    <!-- Filtro para turmas, se necessário -->
-                </div>
+
+                    <label class="tm_ano"></label>
+                        <p>Turno</p>
+                        <select name="anoEscolar" id="turno">
+                            <option value="null">Selecione o turno</option>
+                            <option value="manha">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                        </select>
+                    </label>
+
+                
+                <!--<div class="filtro_turma">
+                     Filtro para turmas, se necessário 
+                </div>-->
             </div>
         </main>
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/cad_turmas.js"></script>
 </body>
 </html>

@@ -658,7 +658,18 @@ table td a:hover {
     color: #315067;
 }
 
-.addCoordenador, .editCoordenadorBtn, .deleteCoordenadorBtn {
+.editAlunoBtn,
+.deleteAlunoBtn,
+.addCoordenador, 
+.editCoordenadorBtn, 
+.deleteCoordenadorBtn,
+.editDisciplinaBtn,
+.deleteDisciplinaBtn,
+.editProfessorBtn,
+.deleteProfessorBtn,
+.addTurma,
+.editTurmaBtn,
+.deleteTurmaBtn {
     padding: 1px 5px;
     border-radius: 6px;
     background: #315067;

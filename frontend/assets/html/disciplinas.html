@@ -98,17 +98,56 @@
 
             <div class="linha"></div>
 
-            <div class="lista_disciplinas">
-
-                <div class="lista_disciplinas">
-                  <p>Disciplina</p>
-                  <p>Professor</p>
+            <div class="content">
+            
+                <div class="listadisciplina">
+                    <table border="1" id="tabelaDisciplinas">
+                        <thead>
+                            <tr>
+                                <th>Nome da Disciplina</th>
+                                <th>Carga Horária</th>
+                                <th>Professor</th>
+                                <th>...</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaDisciplinas">
+                            
+                        </tbody>
+                    </table>
                 </div>
+    
+                <div id="modalDisciplina" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="fecharModal">&times;</span>
+                        <h2 id="modalTitleDisciplina">Editar Disciplina</h2>
+                        <form id="disciplinaForm">
+                            <label for="nome">Nome da Disciplina:</label>
+                            <input type="text" id="nome" name="nome" required>
+    
+                            <label for="cargaHoraria">Carga Horária:</label>
+                            <input type="number" id="cargaHoraria" name="cargaHoraria" required>
+    
+                            <label for="turma">Turma:</label>
+                            <select id="turma" name="turma" required>
+                                <!-- Lista de turmas será inserida via JavaScript -->
+                            </select>
+    
+                            <label for="professor">Professor:</label>
+                            <select id="professor" name="professor" required>
+                                <!-- Lista de professores será inserida via JavaScript -->
+                            </select>
+    
+                            <button type="submit" class="btn">Salvar Alterações</button>
+                        </form>
+                    </div>
+                </div>
+    
             </div>
             
         </main>
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/disciplina.js"></script>
 </body>
 </html>
