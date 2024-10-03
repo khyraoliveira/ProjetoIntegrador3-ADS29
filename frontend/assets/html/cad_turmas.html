@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Cadastrar Turmas</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <span class="icon-hd"><i class="fa-solid fa-bell"></i></span>
+                <span class="icon-hd"><i class="fa-solid fa-comment-dots"></i></span>
+            </div>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="btn-expand">
+                <i class="fa-solid fa-bars" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li class="item-menu">
+                    <a href="inicio.html">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Início</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="alunos.html">
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="txt-link">Alunos</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="docentes.html">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="txt-link">Docentes</span>
+                    </a>
+                </li>
+                <li class="item-menu  ativo">
+                    <a href="turmas.html">
+                        <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="txt-link">Turmas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="coordenador.html">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="txt-link">Coordenadores</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="../../index.html">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="barrareturn">
+                <span class="return">
+                    <a href="turmas.html">
+                    <i class="fa-solid fa-square-caret-left"></i>
+                    </a>
+                </span>
+                <div class="btn-ad">
+                    <button class="btn" type="button" id="limpar">Cancelar</button>
+                    <button class="btn" type="submit" id="salvar">Salvar</button>
+                </div>
+            </div>
+
+            <div class="linha_cad"></div>
+            
+            <div class="dadoscadastrais">
+                <h3>Turmas</h3>
+                
+                <!-- Linha01: turma, ano, obs -->
+                <div class="linha01">
+                    <label class="tm_nome">
+                        <p>Ano Letivo</p>
+                        <input type="number" placeholder="Ex.: 2024" id="anoLetivo">
+                    </label>
+                    <label class="tm_ano">
+                        <p>Ano Escolar</p>
+                        <select name="anoEscolar" id="anoEscolar">
+                            <option value="null">Selecione o ano</option>
+                            <option value="1">1º ano</option>
+                            <option value="2">2º ano</option>
+                            <option value="3">3º ano</option>
+                        </select>
+                    </label>
+
+                    <label class="tm_ano"></label>
+                        <p>Turno</p>
+                        <select name="anoEscolar" id="turno">
+                            <option value="null">Selecione o turno</option>
+                            <option value="manha">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                        </select>
+                    </label>
+
+                
+                <!--<div class="filtro_turma">
+                     Filtro para turmas, se necessário 
+                </div>-->
+            </div>
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/cad_turmas.js"></script>
+</body>
+</html>

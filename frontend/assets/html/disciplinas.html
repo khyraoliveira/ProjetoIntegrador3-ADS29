@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Disciplinas</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <span class="icon-hd"><i class="fa-solid fa-bell"></i></span>
+                <span class="icon-hd"><i class="fa-solid fa-comment-dots"></i></span>
+            </div>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="btn-expand">
+                <i class="fa-solid fa-bars" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li class="item-menu">
+                    <a href="inicio.html">
+                        <span ><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Inicio</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="alunos.html">
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="txt-link">Alunos</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="docentes.html">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="txt-link">Docentes</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="turmas.html">
+                        <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="txt-link">Turmas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="coordenador.html">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="txt-link">Coordenadores</span>
+                    </a>
+                </li>
+                <li class="item-menu ativo">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="../../index.html">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="filtro">
+                <div class="inputs-container">
+                    <label class="itens-input">
+                        <p>Disciplina</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Professor</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Turma</p>
+                        <input type="text">
+                    </label>
+                    
+                </div>
+                <div class="buttons-container">
+                    <button class="btn" type="submit" id="limpar">Limpar</button>
+                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
+                </div>
+            </div>
+            
+            <div class="linha"></div>
+
+            <div class="btn-add">
+                <a href="cad_disciplinas.html"><button class="btn-addal" type="button">Adicionar Disciplina</button></a>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="content">
+            
+                <div class="listadisciplina">
+                    <table border="1" id="tabelaDisciplinas">
+                        <thead>
+                            <tr>
+                                <th>Nome da Disciplina</th>
+                                <th>Carga Horária</th>
+                                <th>Professor</th>
+                                <th>...</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaDisciplinas">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div id="modalDisciplina" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="fecharModal">&times;</span>
+                        <h2 id="modalTitleDisciplina">Editar Disciplina</h2>
+                        <form id="disciplinaForm">
+                            <label for="nome">Nome da Disciplina:</label>
+                            <input type="text" id="nome" name="nome" required>
+    
+                            <label for="cargaHoraria">Carga Horária:</label>
+                            <input type="number" id="cargaHoraria" name="cargaHoraria" required>
+    
+                            <label for="turma">Turma:</label>
+                            <select id="turma" name="turma" required>
+                                <!-- Lista de turmas será inserida via JavaScript -->
+                            </select>
+    
+                            <label for="professor">Professor:</label>
+                            <select id="professor" name="professor" required>
+                                <!-- Lista de professores será inserida via JavaScript -->
+                            </select>
+    
+                            <button type="submit" class="btn">Salvar Alterações</button>
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+            
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/disciplina.js"></script>
+</body>
+</html>

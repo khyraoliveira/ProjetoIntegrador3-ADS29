@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Docentes</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <span class="icon-hd"><i class="fa-solid fa-bell"></i></span>
+                <span class="icon-hd"><i class="fa-solid fa-comment-dots"></i></span>
+            </div>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="btn-expand">
+                <i class="fa-solid fa-bars" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li class="item-menu">
+                    <a href="inicio.html">
+                        <span ><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Inicio</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="alunos.html">
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="txt-link">Alunos</span>
+                    </a>
+                </li>
+                <li class="item-menu ativo">
+                    <a href="docentes.html">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="txt-link">Docentes</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="turmas.html">
+                        <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="txt-link">Turmas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="coordenador.html">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="txt-link">Coordenadores</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="../../index.html">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="filtro">
+                <div class="inputs-container">
+                    <label class="itens-input">
+                        <p>Nome</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Matricula</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Turma</p>
+                        <input type="text">
+                    </label>
+                    
+                </div>
+                <div class="buttons-container">
+                    <button class="btn" type="submit" id="limpar">Limpar</button>
+                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
+                </div>
+            </div>
+            
+            <div class="linha"></div>
+
+            <div class="btn-add">
+                <a href="cad_docentes.html"><button class="btn-addal" type="button">Adicionar docentes</button></a>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="content">
+                <!-- Tabela de Professores -->
+                <div class="listaprofessor">
+                    <table border="1" id="tabelaProfessores">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Disciplina</th>
+                                <th>...</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaProfessores">
+                            <!-- Os dados serão inseridos via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div id="modalProfessor" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="fecharModal">&times;</span>
+                        <h2 id="modalTitleProfessor">Editar Professor</h2>
+                        <form id="professorForm">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required>
+    
+                            <label for="ultimoNome">Último Nome:</label>
+                            <input type="text" id="ultimoNome" name="ultimoNome" required>
+    
+                            <label for="cpf">CPF:</label>
+                            <input type="text" id="cpf" name="cpf" required>
+    
+                            <label for="genero">Gênero:</label>
+                            <input type="text" id="genero" name="genero" required>
+    
+                            <label for="dataNascimento">Data de Nascimento:</label>
+                            <input type="date" id="dataNascimento" name="dataNascimento" required>
+    
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+    
+                            <label for="disciplina">Disciplina:</label>
+                            <select id="disciplina" name="disciplina" required>
+                                <!-- Lista de disciplinas será inserida via JavaScript -->
+                            </select>
+    
+                            <button type="submit" class="btn">Salvar Alterações</button>
+                        </form>
+                    </div>
+                </div>
+    
+            </div>
+
+            
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="/frontend/assets/JS/docente.js"></script>
+</body>
+</html>
