@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const apiUrl = 'http://localhost:8080';
-    
+
     const coordenadorModal = document.getElementById('modalCoordenador');
     const coordenadorForm = document.getElementById('coordenadorForm');
     const modalTitleCoordenador = document.getElementById('modalTitleCoordenador');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         coordenadores.forEach(coordenador => {
             const row = document.createElement('tr');
-            const nomeCompleto = `${coordenador.nome} ${coordenador.ultimoNome}`; 
+            const nomeCompleto = `${coordenador.nome} ${coordenador.ultimoNome}`;
             const telefone = `(${coordenador.telefones[0].ddd}) ${coordenador.telefones[0].numero}`;
 
             row.innerHTML = `
@@ -43,28 +43,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para atualizar coordenador
     const updateCoordenador = async (cpf, coordenador) => {
-        await fetch(`${apiUrl}/coordenadores/${cpf}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(coordenador)
-        });
-        loadCoordenadores();
+        try {
+            const response = await fetch(`${apiUrl}/coordenadores/${cpf}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(coordenador),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro ao atualizar coordenador: ${response.statusText}`);
+            }
+            loadCoordenadores();
+        } catch (error) {
+            console.error('Erro ao atualizar coordenador:', error);
+        }
     };
 
     // Função para deletar coordenador com confirmação
     const confirmDeleteCoordenador = (cpf) => {
-        if (confirm("Tem certeza que deseja deletar este coordenador?")) {
+        if (confirm('Tem certeza que deseja deletar este coordenador?')) {
             deleteCoordenador(cpf);
         }
     };
 
     const deleteCoordenador = async (cpf) => {
-        await fetch(`${apiUrl}/coordenadores/${cpf}`, {
-            method: 'DELETE'
-        });
-        loadCoordenadores();
+        try {
+            await fetch(`${apiUrl}/coordenadores/${cpf}`, {
+                method: 'DELETE',
+            });
+            loadCoordenadores();
+        } catch (error) {
+            console.error('Erro ao deletar coordenador:', error);
+        }
     };
 
     // Abrir modal para editar coordenador
@@ -85,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('ultimoNome').value = coordenador.ultimoNome;
         document.getElementById('cpf').value = coordenador.cpf;
         document.getElementById('genero').value = coordenador.genero;
-        document.getElementById('dataNascimento').value = coordenador.data_nascimento.split('T')[0]; // Ajustando a data
+        document.getElementById('dataNascimento').value = coordenador.data_nascimento.split('T')[0];
         document.getElementById('cep').value = coordenador.enderecos[0].cep;
         document.getElementById('rua').value = coordenador.enderecos[0].rua;
         document.getElementById('numero').value = coordenador.enderecos[0].numero;
@@ -116,14 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     numero: document.getElementById('numero').value,
                     bairro: document.getElementById('bairro').value,
                     cidade: document.getElementById('cidade').value,
-                    estado: document.getElementById('estado').value
-                }
+                    estado: document.getElementById('estado').value,
+                },
             ],
             telefones: [
                 {
                     ddd: document.getElementById('ddd').value,
-                    numero: document.getElementById('numero01').value
-                }
+                    numero: document.getElementById('numero01').value,
+                },
             ],
         };
 
@@ -133,6 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         coordenadorModal.style.display = 'none';
         loadCoordenadores();
+    });
+
+    // Função para fechar o modal
+    const fecharModal = document.getElementById('fecharModal');
+    fecharModal.addEventListener('click', () => {
+        coordenadorModal.style.display = 'none';
     });
 
     // Inicializando o carregamento de coordenadores e eventos
