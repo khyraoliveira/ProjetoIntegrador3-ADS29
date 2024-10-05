@@ -41,9 +41,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    // Função para converter a data de yyyy-mm-dd para dd/mm/yyyy
+    function formatarData(data) {
+        if (!data.includes('-')) {
+            return data; // Caso a data já esteja no formato desejado
+        }
+        const partes = data.split('-');
+        if (partes.length === 3) {
+            return `${partes[2]}/${partes[1]}/${partes[0]}`;
+        } else {
+            return undefined; // Se o formato não estiver correto, retorna indefinido
+        }
+    }
+
     // Função para atualizar coordenador
     const updateCoordenador = async (cpf, coordenador) => {
         try {
+            // Formatar a data antes de enviar
+            coordenador.data_nascimento = formatarData(coordenador.data_nascimento);
+
+            // Exibir no console os dados que estão sendo enviados
+            console.log('Coordenador a ser enviado:', JSON.stringify(coordenador, null, 2));
+
             const response = await fetch(`${apiUrl}/coordenadores/${cpf}`, {
                 method: 'PUT',
                 headers: {
@@ -53,11 +72,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (!response.ok) {
-                throw new Error(`Erro ao atualizar coordenador: ${response.statusText}`);
+                const errorText = await response.text();
+                throw new Error(`Erro ao atualizar coordenador: ${errorText}`);
             }
+
+            alert('Coordenador atualizado com sucesso!');
             loadCoordenadores();
         } catch (error) {
             console.error('Erro ao atualizar coordenador:', error);
+            alert('Erro ao atualizar coordenador.');
         }
     };
 
@@ -70,12 +93,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const deleteCoordenador = async (cpf) => {
         try {
-            await fetch(`${apiUrl}/coordenadores/${cpf}`, {
+            const response = await fetch(`${apiUrl}/coordenadores/${cpf}`, {
                 method: 'DELETE',
             });
+
+            if (response.ok) {
+                alert('Coordenador deletado com sucesso!');
+            } else {
+                alert('Erro ao deletar coordenador.');
+            }
+
             loadCoordenadores();
         } catch (error) {
             console.error('Erro ao deletar coordenador:', error);
+            alert('Erro ao deletar coordenador.');
         }
     };
 
@@ -118,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ultimoNome: document.getElementById('ultimoNome').value,
             cpf: document.getElementById('cpf').value,
             genero: document.getElementById('genero').value,
-            data_nascimento: document.getElementById('dataNascimento').value,
+            data_nascimento: document.getElementById('dataNascimento').value, // Data no formato yyyy-mm-dd
             email: document.getElementById('email').value,
             status: true,
             enderecos: [

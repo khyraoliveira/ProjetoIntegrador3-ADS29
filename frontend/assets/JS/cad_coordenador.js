@@ -5,7 +5,7 @@ document.getElementById('salvar').addEventListener('click', function(event) {
     const ultimoNome = document.getElementById('ultimoNome').value;
     const cpf = document.getElementById('cpf').value;
     const genero = document.getElementById('dc_genero').value;
-    const dataNascimento = document.getElementById('data_nascimento').value;
+    const dataNascimento = document.getElementById('data_nascimento').value; // formato yyyy-mm-dd
     const email = document.getElementById('email').value;
     const ddd = document.getElementById('ddd').value;
     const numero01 = document.getElementById('dc_numero01').value;
@@ -17,12 +17,32 @@ document.getElementById('salvar').addEventListener('click', function(event) {
     const cidade = document.getElementById('cidade').value;
     const estado = document.getElementById('estado').value;
 
+    // Função para converter a data no formato yyyy-mm-dd para dd/mm/yyyy
+    function formatarData(data) {
+        if (!data.includes('-')) {
+            return data; // Caso a data já esteja no formato desejado, retorna o valor como está
+        }
+        const partes = data.split('-');
+        if (partes.length === 3) {
+            return `${partes[2]}/${partes[1]}/${partes[0]}`;
+        } else {
+            return undefined; // Se o formato não estiver correto, retorna indefinido
+        }
+    }
+
+    const dataNascimentoFormatada = formatarData(dataNascimento);
+
+    if (!dataNascimentoFormatada) {
+        alert('Erro: Data de nascimento inválida.');
+        return; // Interrompe o fluxo se a data for inválida
+    }
+
     const coordenador = {
         cpf: cpf,
         nome: nome,
         ultimoNome: ultimoNome,
         genero: genero,
-        data_nascimento: dataNascimento,
+        data_nascimento: dataNascimentoFormatada, // Enviando no formato dd/mm/yyyy
         email: email,
         status: true,
         enderecos: [
