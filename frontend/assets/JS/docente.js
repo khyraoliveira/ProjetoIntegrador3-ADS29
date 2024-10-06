@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
             tableBody.innerHTML = '';
 
             professores.forEach(professor => {
-                const disciplina = professor.disciplina ? professor.disciplina.nome : 'Sem disciplina';
+                const nomeCompleto = `${professor.nome} ${professor.ultimoNome}`;
                 const row = document.createElement('tr');
 
                 //turmaDisciplinaProfessores.disciplina.nome
                 row.innerHTML = `
-                    <td>${professor.nome}</td>
+                    <td>${nomeCompleto}</td>
                     <td>${professor.cpf}</td>
-                    <td>${disciplina}</td>
+                    <td>${professor.email}</td>
                     <td>
                         <button class="editProfessorBtn" data-id="${professor.id}">Editar</button>
                         <button class="deleteProfessorBtn" data-id="${professor.id}">Deletar</button>
@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Abrir modal de edição de professor
-    const openEditProfessorModal = async (id) => {
+    const openEditProfessorModal = async (cpf) => {
         try {
-            const response = await fetch(`${apiUrl}/professores/${id}`);
+            const response = await fetch(`${apiUrl}/professores/${cpf}`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar professor');
             }
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             professorForm.cpf.value = professor.cpf;
             professorForm.email.value = professor.email;
             // Adicione outros campos conforme necessário
-            editProfessorId = id;
+            editProfessorId = cpf;
             professorModal.style.display = 'block';
         } catch (error) {
             console.error('Erro ao abrir modal de edição de professor:', error);
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Função para atualizar professor
-    const updateProfessor = async (id) => {
+    const updateProfessor = async (cpf) => {
         const professorData = {
             nome: professorForm.nome.value,
             cpf: professorForm.cpf.value,
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         try {
-            const response = await fetch(`${apiUrl}/professores/${id}`, {
+            const response = await fetch(`${apiUrl}/professores/${cpf}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Função para excluir professor
-    const deleteProfessor = async (id) => {
+    const deleteProfessor = async (cpf) => {
         if (confirm('Tem certeza que deseja excluir este professor?')) {
             try {
-                const response = await fetch(`${apiUrl}/professores/${id}`, {
+                const response = await fetch(`${apiUrl}/professores/${cpf}`, {
                     method: 'DELETE',
                 });
                 if (!response.ok) {
