@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Turmas</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="container">
+    <!-- Header -->
+    <header class="barrasup">
+        <div class="icon-header">
+            <img src="../images/SGE-logo.png" alt="">
+        </div>
+    </header>
+
+               <!-- Navbar -->
+               <nav class="navbar">
+                <div class="btn-expand">
+                    <i class="fa-solid fa-bars" id="btn-exp"></i>
+                </div>
+                <ul>
+                    <li class="item-menu">
+                        <a href="prof_inicio.html">
+                            <span ><i class="fa-solid fa-house"></i></span>
+                            <span class="txt-link">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="prof_alunos.html">
+                            <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                            <span class="txt-link">Alunos</span>
+                        </a>
+                    </li>
+                    <li class="item-menu ativo">
+                        <a href="prof_turmas.html">
+                            <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                            <span class="txt-link">Turmas</span>
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="../../index.html">
+                            <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                            <span class="txt-link">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        <main class="content">
+            <div class="paginaref">
+                <h2 class="aluno">Turmas</h2>
+               </div>
+            <!-- Filtro -->
+            <div class="filtro">
+                <div class="inputs-container">
+                    <label class="itens-input">
+                        <p>Nome da Turma</p>
+                        <input type="text">
+                    </label>
+                    <label class="itens-input">
+                        <p>Turno</p>
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="buttons-container">
+                    <button class="btn" type="submit" id="limpar">Limpar</button>
+                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+
+            <!-- Tabela de Turmas -->
+            <div class="listaturmas">
+                <table border="1" id="tabelaTurmas">
+                    <thead>
+                        <tr>
+                            <th>Nome da Turma</th>
+                            <th>Ano Escolar</th>
+                            <th>Turno</th>
+                            <th>...</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaTurmas">
+                        <!-- Os dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal para Editar Turma -->
+            <div id="modalTurma" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" id="fecharModal">&times;</span>
+                    <h2 id="modalTitleTurma">Editar Turma</h2>
+                    <form id="turmaForm">
+                        <label for="nomeTurma">Nome da Turma:</label>
+                        <input type="text" id="nomeTurma" name="nomeTurma" required>
+
+                        <label for="anoLetivo">Ano Letivo:</label>
+                        <input type="number" id="anoLetivo" name="anoLetivo" required>
+
+                        <label for="anoEscolar">Ano Escolar:</label>
+                        <input type="text" id="anoEscolar" name="anoEscolar" required>
+
+                        <label for="turno">Turno:</label>
+                        <input type="text" id="turno" name="turno" required>
+
+                        <button type="submit" class="btn">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/turma.js"></script>
+</body>
+</html>

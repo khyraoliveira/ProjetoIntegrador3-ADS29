@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Turmas</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="container">
+    <!-- Header -->
+    <header class="barrasup">
+        <div class="icon-header">
+            <img src="../images/SGE-logo.png" alt="">
+        </div>
+    </header>
+
+               <!-- Navbar -->
+               <nav class="navbar">
+                <div class="btn-expand">
+                    <i class="fa-solid fa-bars" id="btn-exp"></i>
+                </div>
+                <ul>
+                    <li class="item-menu">
+                        <a href="prof_inicio.html">
+                            <span ><i class="fa-solid fa-house"></i></span>
+                            <span class="txt-link">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="prof_alunos.html">
+                            <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                            <span class="txt-link">Alunos</span>
+                        </a>
+                    </li>
+                    <li class="item-menu ativo">
+                        <a href="prof_turmas.html">
+                            <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                            <span class="txt-link">Turmas</span>
+                        </a>
+                    </li>
+                    <li class="item-menu">
+                        <a href="../../index.html">
+                            <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                            <span class="txt-link">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        <main class="content">
+            <div class="paginaref">
+                <h2 class="aluno">Frequências</h2>
+                <div class="btn-add">
+                    <button class="btn-addal" type="submit">Salvar</button>
+                </div>
+               </div>
+
+            <div class="linha"></div>
+
+            <!-- Tabela de Turmas -->
+            <div class="listaturmas">
+                <table border="1" id="tabelaTurmas">
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>07/10</th>
+                            <th>08/10</th>
+                            <th>09/10</th>
+                            <th>10/10</th>
+                            <th>11/10</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaAlunos">
+                        <!-- Os dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+        
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/turma.js"></script>
+</body>
+</html>
