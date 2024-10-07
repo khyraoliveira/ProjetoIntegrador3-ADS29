@@ -27,13 +27,7 @@
                             <span class="txt-link">Inicio</span>
                         </a>
                     </li>
-                    <li class="item-menu">
-                        <a href="prof_alunos.html">
-                            <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
-                            <span class="txt-link">Alunos</span>
-                        </a>
-                    </li>
-                    <li class="item-menu ativo">
+                    <li class="item-menu ativo" id="drop-hover">
                         <a href="prof_turmas.html">
                             <span class="icon"><i class="fa-solid fa-building-user"></i></span>
                             <span class="txt-link">Turmas</span>
@@ -87,29 +81,6 @@
                         <!-- Os dados serão inseridos via JavaScript -->
                     </tbody>
                 </table>
-            </div>
-
-            <!-- Modal para Editar Turma -->
-            <div id="modalTurma" style="display:none;">
-                <div class="modal-content">
-                    <span class="close" id="fecharModal">&times;</span>
-                    <h2 id="modalTitleTurma">Editar Turma</h2>
-                    <form id="turmaForm">
-                        <label for="nomeTurma">Nome da Turma:</label>
-                        <input type="text" id="nomeTurma" name="nomeTurma" required>
-
-                        <label for="anoLetivo">Ano Letivo:</label>
-                        <input type="number" id="anoLetivo" name="anoLetivo" required>
-
-                        <label for="anoEscolar">Ano Escolar:</label>
-                        <input type="text" id="anoEscolar" name="anoEscolar" required>
-
-                        <label for="turno">Turno:</label>
-                        <input type="text" id="turno" name="turno" required>
-
-                        <button type="submit" class="btn">Salvar Alterações</button>
-                    </form>
-                </div>
             </div>
 
         </main>

@@ -37,7 +37,7 @@ function verificarLogin(event) {
   if (usuarioEncontrado) {
     // Verifica o cargo do usuário e redireciona para a página correspondente
     if (usuarioEncontrado.cargo === 'Professor') {
-      window.location.href = './assets/html/inicio.html';
+      window.location.href = './assets/html/prof_inicio.html';
     } else if (usuarioEncontrado.cargo === 'Coordenador') {
       window.location.href = './assets/html/inicio.html';
     }
