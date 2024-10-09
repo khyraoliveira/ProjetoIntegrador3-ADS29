@@ -210,10 +210,10 @@ main.content {
 .linha {
     width: 100%;
     max-width: 935px;
-    height: 1px;
-    background-color: #a7a7a7;;
+    height: 1.5px;
+    background-color: #FF7C0D;
     margin: 15px;
-    opacity: 40%;
+
 }
 
 .listaaluno {
@@ -231,7 +231,9 @@ main.content {
 
 .btn-addal,
 .addCoordenador,
-.addTurma{
+.addTurma,
+.editCoordenadorBtn,
+.deleteCoordenadorBtn{
     width: 130px;
     height: 25px;
     padding: 0;
@@ -247,6 +249,12 @@ main.content {
     line-height: normal;
     font-family: 'Inter', sans-serif;
 }
+
+.editCoordenadorBtn,
+.deleteCoordenadorBtn{
+    width: 70px;
+}
+
 .addCoordenador{
     width: 150px;
 }
@@ -474,7 +482,8 @@ input::placeholder {
     width: 224px;
 }
 
-.al_ddd input{
+.al_ddd input,
+#ddd input{
     width: 55px;
 }
 
@@ -520,7 +529,7 @@ select {
 table {
     width: 935px;
     border-collapse: collapse;
-    background-color: #fff;
+    background-color: #f5f5f5;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -546,10 +555,11 @@ table tbody tr:nth-child(even) {
 }
 
 table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #7a9bb48a;
 }
 
-table th {
+table th,
+table td {
     font-style: normal;
     font-size: 12px;
     font-weight: 500;
@@ -576,18 +586,25 @@ table td a:hover {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    
     overflow: auto; 
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.btn-modal{
+    display: flex;
+    justify-content: end;
+}
 .modal-content {
-    background-color: #fefefe;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f7f7f7;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 600px; 
+    width: 100%;
+    max-width: 935px;
     border-radius: 8px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
 }
@@ -619,9 +636,11 @@ h2 {
     margin-bottom: 5px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.linha01_modal,
+.linha02_modal,
+.linha03_modal{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
 }

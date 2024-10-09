@@ -120,89 +120,186 @@
             </div>
 
             <!-- Modal de Edição de Aluno -->
-            <div id="modalAluno" style="display:none;">
+            <div id="modalCoordenador" class="modal">
                 <div class="modal-content">
                     <span class="close" id="fecharModal">&times;</span>
-                    <h2 id="modalTitleAluno">Editar Aluno</h2>
-                    <form id="alunoForm">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
-
-                        <label for="ultimoNome">Último Nome:</label>
-                        <input type="text" id="ultimoNome" name="ultimoNome" required>
-
-                        <label for="genero">Genero:</label>
-                        <select id="genero" name="genero" required>
-                            <option value="null">Selecione o gênero</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                        </select>
-
-                        <label for="data_nascimento">Data de Nascimento:</label>
-                        <input type="date" id="data_nascimento" name="data_nascimento" required>
-
-                        <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" name="cpf" required>
-
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="turma">Turma:</label>
-                        <select id="turma" name="turma" required>
-                            <!-- Turmas serão carregadas via JavaScript -->
-                        </select>
-
+                    <h3 id="modalTitleCoordenador">Adicionar/Editar Coordenador</h3>
+                    <form id="coordenadorForm">
+                        <div class="linha01_modal">
+                            <div class="form-group">
+                                <label for="" class="al_nome">
+                                    <p>Primeiro nome</p>
+                                    <input type="text" placeholder="Primeiro nome" id="nome" required>
+                                </label>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="al_sobrenome">
+                                    <p>Sobrenome</p>
+                                    <input type="text" placeholder="Sobrenome" id="ultimoNome" required>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="al_cpf">
+                                    <p>CPF</p>
+                                    <input type="text" placeholder="Apenas números" id="cpf" maxlength="11" required>
+                                </label>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="al_genero">
+                                <p>Gênero</p>
+                                <select name="aluno" id="genero" required>
+                                    <option value="null">...</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
+                            </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="dc_nascimento">
+                                    <p>Data de nascimento</p>
+                                    <input type="date" id="data_nascimento" required>
+                                </label> 
+                            </div>
+                        </div>
+                        <div class="linha02_modal">
+                        
+                            <div class="form-group">
+                                <label class="al_email">
+                                    <p>E-mail</p>
+                                    <input type="text" placeholder="Digite o e-mail" id="email" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_turma">
+                                    <p>Turma</p>
+                                    <select name="aluno" id="al_turma">
+                                        <option value="null">Selecione turma </option>
+                                    </select>
+                                </label>
+                            </div>
+                            
+                        </div>
+                        <div class="linha_cad"></div>
                         <h3>Endereço</h3>
-
-                        <label for="cep">CEP:</label>
-                        <input type="text" id="cep" name="cep" required>
-
-                        <label for="rua">Rua:</label>
-                        <input type="text" id="rua" name="rua" required>
-
-                        <label for="numero">Número:</label>
-                        <input type="text" id="numero" name="numero" required>
-
-                        <label for="bairro">Bairro:</label>
-                        <input type="text" id="bairro" name="bairro" required>
-
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" id="cidade" name="cidade" required>
-
-                        <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" required>
-
-                        <h3>Telefone</h3>
-
-                        <label for="ddd">DDD:</label>
-                        <input type="text" id="ddd" name="ddd" required>
-
-                        <label for="numero_telefone">Número:</label>
-                        <input type="text" id="numero_telefone" name="numero_telefone" required>
-
+                        <div class="linha02_modal">
+                            <div class="form-group">
+                                <label class="al_cep">
+                                    <p>CEP</p>
+                                    <input type="text" id="cep" maxlength="8" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_logradouro">
+                                    <p>Rua</p>
+                                    <input type="text" placeholder="" id="rua" required>
+                                </label>
+                           
+                            </div>
+                            <div class="form-group">
+                                <label class="al_numerocs">
+                                    <p>Número</p>
+                                    <input type="text" placeholder="" id="numero" required>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="al_bairro">
+                                    <p>Bairro</p>
+                                    <input type="text" placeholder="" id="bairro" required>
+                                </label>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label class="al_cidade">
+                                    <p>Cidade</p>
+                                    <input type="text" placeholder="" id="cidade" required>
+                                </label>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label class="al_estado">
+                                    <p>UF</p>
+                                    <select id="estado">
+                                        <option value="null"></option>
+                                        <option value="Acre">AC</option>
+                                        <option value="Alagoas">AL</option>
+                                        <option value="Amapá">AP</option>
+                                        <option value="Amazonas">AM</option>
+                                        <option value="Bahia">BA</option>
+                                        <option value="Ceará">CE</option>
+                                        <option value="Distrito Federal">DF</option>
+                                        <option value="Espírito Santo">ES</option>
+                                        <option value="Goiás">GO</option>
+                                        <option value="Maranhão">MA</option>
+                                        <option value="Mato Grosso">MT</option>
+                                        <option value="Mato Grosso do Sul">MS</option>
+                                        <option value="Minas Gerais">MG</option>
+                                        <option value="Pará">PA</option>
+                                        <option value="Paraíba">PB</option>
+                                        <option value="Paraná">PR</option>
+                                        <option value="Pernambuco">PE</option>
+                                        <option value="Piauí">PI</option>
+                                        <option value="Rio de Janeiro">RJ</option>
+                                        <option value="Rio Grande do Norte">RN</option>
+                                        <option value="Rio Grande do Sul">RS</option>
+                                        <option value="Rondônia">RO</option>
+                                        <option value="Roraima">RR</option>
+                                        <option value="Santa Catarina">SC</option>
+                                        <option value="São Paulo">SP</option>
+                                        <option value="Sergipe">SE</option>
+                                        <option value="Tocantins">TO</option>
+                                    </select>
+                                    
+                                </label> 
+                            </div>
+                        </div>
+                        <div class="linha_cad"></div>
                         <h3>Responsável</h3>
+                        <div class="linha02_modal">
+                            <div class="form-group">
+                                <label class="al_responsavel">
+                                    <p>Primeiro nome</p>
+                                    <input type="text" placeholder="Ex.: Maria " id="responsavelNome" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_responsavel">
+                                    <p>Sobrenome</p>
+                                    <input type="text" placeholder="Sobrenome, ex.: Silva" id="responsavelUltimoNome" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_numero01">
+                                    <p>CPF</p>
+                                    <input type="text" placeholder="Apenas números" id="cpfResponsavel" maxlength="11" required>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="al_parente">
+                                    <p>Grau de Parentesco</p>
+                                    <input type="text" placeholder="Ex.: Mãe" id="grauParentesco" required>
+                                </label>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label class="al_ddd">
+                                    <p>DDD</p>
+                                    <input type="text" placeholder="Ex.: 81" id="dddResponsavel"  required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_numero01">
+                                    <p>Telefone</p>
+                                    <input type="text" maxlength="9"  id="numeroResponsavel" required>
+                                </label>
+                                
+                            </div>
+                        </div>
 
-                        <label for="responsavelNome">Nome do Responsável:</label>
-                        <input type="text" id="responsavelNome" name="responsavelNome" required>
-
-                        <label for="responsavelUltimoNome">Último Nome do Responsável:</label>
-                        <input type="text" id="responsavelUltimoNome" name="responsavelUltimoNome" required>
-
-                        <label for="cpfResponsavel">CPF do Responsável:</label>
-                        <input type="text" id="cpfResponsavel" name="cpfResponsavel" required>
-
-                        <label for="grauParentesco">Grau de Parentesco:</label>
-                        <input type="text" id="grauParentesco" name="grauParentesco" required>
-
-                        <h3>Telefone do Responsável</h3>
-
-                        <label for="dddResponsavel">DDD:</label>
-                        <input type="text" id="dddResponsavel" name="dddResponsavel" required>
-
-                        <label for="numeroResponsavel">Número:</label>
-                        <input type="text" id="numeroResponsavel" name="numeroResponsavel" required>
-
-                        <button type="submit" class="btn">Salvar Alterações</button>
+                        <div class="btn-modal"><button class="btn-addal" type="submit">Salvar</button></div>
                     </form>
                 </div>
             </div>
