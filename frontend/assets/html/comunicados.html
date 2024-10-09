@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGE - Coordenadores</title>
+    <title>SGE - Alunos</title>
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
@@ -11,10 +11,9 @@
         <!-- Header -->
         <header class="barrasup">
             <div class="icon-header">
-                <img src="../images/SGE-logo.png" alt="Logo do SGE">
+                <img src="../images/SGE-logo.png" alt="">
             </div>
         </header>
-
         <!-- Navbar -->
         <nav class="navbar">
             <div class="btn-expand">
@@ -24,10 +23,10 @@
                 <li class="item-menu">
                     <a href="inicio.html">
                         <span><i class="fa-solid fa-house"></i></span>
-                        <span class="txt-link">Início</span>
+                        <span class="txt-link">Inicio</span>
                     </a>
                 </li>
-                <li class="item-menu">
+                <li class="item-menu ativo">
                     <a href="alunos.html">
                         <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
                         <span class="txt-link">Alunos</span>
@@ -45,7 +44,7 @@
                         <span class="txt-link">Turmas</span>
                     </a>
                 </li>
-                <li class="item-menu ativo">
+                <li class="item-menu">
                     <a href="coordenador.html">
                         <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
                         <span class="txt-link">Coordenadores</span>
@@ -55,6 +54,12 @@
                     <a href="disciplinas.html">
                         <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
                         <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Comunicados</span>
                     </a>
                 </li>
                 <li class="item-menu">
@@ -73,56 +78,60 @@
         </nav>
 
         <main class="content">
-            <div class="paginaref">
-                <h2 class="aluno">Coordenador</h2>
-            </div>
+           <div class="paginaref">
+            <h2 class="aluno">Alunos</h2>
+           </div>
             <!-- Filtro -->
             <div class="filtro">
                 <div class="inputs-container">
                     <label class="itens-input">
                         <p>Nome</p>
-                        <input type="text" placeholder="Digite o nome">
+                        <input type="text">
                     </label>
                     <label class="itens-input">
-                        <p>Matrícula</p>
-                        <input type="text" placeholder="Digite a matrícula">
+                        <p>Matricula</p>
+                        <input type="text">
                     </label>
+                    <label class="itens-input">
+                        <p>Turma</p>
+                        <input type="text">
+                    </label>
+                    
                 </div>
                 <div class="buttons-container">
-                    <button class="btn" type="reset" id="limpar">Limpar</button>
-                    <button class="btn" type="button" id="filtrar">Filtrar</button>
+                    <button class="btn" type="submit" id="limpar">Limpar</button>
+                    <button class="btn" type="submit" id="filtrar">Filtrar</button>
                 </div>
             </div>
-
-            <div class="linha"></div>
             
+            <div class="linha"></div>
+
+            <!-- Botão de Adicionar Aluno -->
             <div class="btn-add">
-                <a href="cad_coordenador.html">
-                    <button class="addCoordenador" type="button">Adicionar Coordenador</button>
-                </a>
+                <a href="cad_alunos.html"><button class="btn-addal" type="button">Adicionar aluno</button></a>
             </div>
 
             <div class="linha"></div>
 
-            <!-- Tabela de Coordenadores -->
-            <div class="listacoordenador">
-                <table border="1" id="tabelaCoordenadores">
+            <!-- Tabela de Alunos -->
+            <div class="listaalunos">
+                <table border="1" id="tabelaAlunos">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Email</th>
-                            <th>Telefone</th>
-                            <th>...</th>
+                            <th>Aluno</th>
+                            <th>Turma</th>
+                            <th>Nome do Responsável</th>
+                            <th>Telefone do Responsável</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="listaCoordenadores">
-                        <!-- Os dados serão inseridos via JavaScript -->
+                    <tbody id="listaAlunos">
+                        <!-- Dados serão carregados via JavaScript -->
                     </tbody>
                 </table>
             </div>
 
-            <!-- Modal Coordenador -->
+            <!-- Modal de Edição de Aluno -->
             <div id="modalCoordenador" class="modal">
                 <div class="modal-content">
                     <span class="close" id="fecharModal">&times;</span>
@@ -162,7 +171,7 @@
                             <div class="form-group">
                                 <label class="dc_nascimento">
                                     <p>Data de nascimento</p>
-                                    <input type="date" id="dataNascimento" required>
+                                    <input type="date" id="data_nascimento" required>
                                 </label> 
                             </div>
                         </div>
@@ -175,17 +184,55 @@
                                 </label>
                             </div>
                             <div class="form-group">
+                                <label class="al_turma">
+                                    <p>Turma</p>
+                                    <select name="aluno" id="al_turma">
+                                        <option value="null">Selecione turma </option>
+                                    </select>
+                                </label>
+                            </div>
+                            
+                        </div>
+                        <div class="linha_cad"></div>
+                        <h3>Responsável</h3>
+                        <div class="linha02_modal">
+                            <div class="form-group">
+                                <label class="al_responsavel">
+                                    <p>Primeiro nome</p>
+                                    <input type="text" placeholder="Ex.: Maria " id="responsavelNome" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_responsavel">
+                                    <p>Sobrenome</p>
+                                    <input type="text" placeholder="Sobrenome, ex.: Silva" id="responsavelUltimoNome" required>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="al_numero01">
+                                    <p>CPF</p>
+                                    <input type="text" placeholder="Apenas números" id="cpfResponsavel" maxlength="11" required>
+                                </label>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="al_parente">
+                                    <p>Grau de Parentesco</p>
+                                    <input type="text" placeholder="Ex.: Mãe" id="grauParentesco" required>
+                                </label>
+                            
+                            </div>
+                            <div class="form-group">
                                 <label class="al_ddd">
                                     <p>DDD</p>
-                                    <input type="text" placeholder="Ex.: 81" id="ddd" required>
+                                    <input type="text" placeholder="Ex.: 81" id="dddResponsavel"  required>
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label class="al_numero01">
                                     <p>Telefone</p>
-                                    <input type="text" maxlength="9"  id="numero01" required>
+                                    <input type="text" maxlength="9"  id="numeroResponsavel" required>
                                 </label>
-                                
                             </div>
                         </div>
                         <div class="linha_cad"></div>
@@ -262,15 +309,15 @@
                                 </label> 
                             </div>
                         </div>
+
                         <div class="btn-modal"><button class="btn-addal" type="submit">Salvar</button></div>
                     </form>
                 </div>
             </div>
         </main>
         
-        <script src="../JS/navbar.js"></script>
-        <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
-        <script src="../JS/coordenador.js"></script>
-    </div>
+    <script src="../JS/navbar.js"></script>
+    <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/aluno.js"></script>
 </body>
 </html>

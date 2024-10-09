@@ -8,9 +8,8 @@
 </head>
 <body>
     <div class="container">
-        
           <!-- Header -->
-        <header class="barrasup">
+          <header class="barrasup">
             <div class="icon-header">
                 <img src="../images/SGE-logo.png" alt="">
             </div>
@@ -40,7 +39,7 @@
                         <span class="txt-link">Docentes</span>
                     </a>
                 </li>
-                <li class="item-menu">
+                <li class="item-menu  ativo">
                     <a href="turmas.html">
                         <span class="icon"><i class="fa-solid fa-building-user"></i></span>
                         <span class="txt-link">Turmas</span>
@@ -52,7 +51,7 @@
                         <span class="txt-link">Coordenadores</span>
                     </a>
                 </li>
-                <li class="item-menu  ativo">
+                <li class="item-menu">
                     <a href="disciplinas.html">
                         <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
                         <span class="txt-link">Disciplinas</span>
@@ -76,7 +75,7 @@
         <main class="content">
             <div class="barrareturn">
                 <span class="return">
-                    <a href="disciplinas.html">
+                    <a href="turmas.html">
                     <i class="fa-solid fa-square-caret-left"></i>
                     </a>
                 </span>
@@ -89,40 +88,26 @@
             <div class="linha_cad"></div>
             
             <div class="dadoscadastrais">
-                <h3>Cadastro de Disciplina</h3>
+                <h3>Comunicado</h3>
                 
                 <!-- Linha01: turma, ano, obs -->
-                <div class="linha01">
-                    <label for="nome">
-                        <p>Nome da Disciplina</p>
-                        <input type="text" id="nome" name="nome" required>
-                    </label>
-
-                    <label for="cargaHoraria">
-                        <p>Carga Horária</p>
-                     <input type="number" id="cargaHoraria" name="cargaHoraria" required>
-                    </label>
-
-                    <label for="professorId">Professor
-                    <select id="professorId" name="professorId" required>
-                        
-
-                    </select>
-                    </label>
-
-                    <label for="turmaId">Turma
-                    <select id="turmaId" name="turmaId" required>
-                        
-
-                    </select>
-                    </label>
-                </div>
-                
+                    <div class="linha01">
+                        <label class="titlle">
+                            <p>Título</p>
+                            <input type="text" name="" id="titulo_comun" placeholder="Título do comunicado">
+                        </label>
+                    </div>
+                    <div class="linha02">
+                        <label class="msg_comunica">
+                            <p>Mensagem</p>
+                            <textarea name="" id="msg_comun" placeholder="Digite sua mensagem"></textarea>
+                        </label>
+                    </div>
             </div>
         </main>
         
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
-    <script src="/frontend/assets/JS/cad_disciplinas.js"></script>
+    <script src="/frontend/assets/JS/cad_turmas.js"></script>
 </body>
 </html>

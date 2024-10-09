@@ -482,6 +482,22 @@ input::placeholder {
     width: 224px;
 }
 
+.titlle input{
+    width: 600px;
+}
+
+textarea{
+    width: 600px;
+    max-width: 600px;
+    height: 200px;
+    border-radius: 3px;
+    background-color: #F2F2F2;
+    border: 1px solid #C7C7C7;
+    padding: 0 8px;
+    font-size: 14px;
+    box-sizing: border-box; 
+}
+
 .al_ddd input,
 #ddd input{
     width: 55px;
