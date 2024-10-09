@@ -50,11 +50,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const numeroResponsavel = document.getElementById('numeroResponsavel').value;
         const grauParentesco = document.getElementById('grauParentesco').value;
 
+        function formatarData(data) {
+          if (!data.includes('-')) {
+              return data; // Caso a data já esteja no formato desejado, retorna o valor como está
+          }
+          const partes = data.split('-');
+          if (partes.length === 3) {
+              return `${partes[2]}/${partes[1]}/${partes[0]}`;
+          } else {
+              return undefined; // Se o formato não estiver correto, retorna indefinido
+          }
+      }
+  
+      const dataNascimentoFormatada = formatarData(dataNascimento);
+  
+      if (!dataNascimentoFormatada) {
+          alert('Erro: Data de nascimento inválida.');
+          return; // Interrompe o fluxo se a data for inválida
+      }
+
         const aluno = {
             nome: nome,
             ultimoNome: ultimoNome,
             genero: genero,
-            data_nascimento: dataNascimento,
+            data_nascimento: dataNascimentoFormatada,
             cpf: cpf,
             email: email,
             coordenacaoId: 1,

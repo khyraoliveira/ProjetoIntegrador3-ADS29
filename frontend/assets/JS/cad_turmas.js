@@ -4,20 +4,14 @@ document.getElementById('salvar').addEventListener('click', function(event) {
     const anoLetivo = document.getElementById('anoLetivo').value;
     const anoEscolar = document.getElementById('anoEscolar').value;
     const turno = document.getElementById('turno').value;
+ 
 
     const turma = {
         anoLetivo: anoLetivo,
         anoEscolar: anoEscolar,
         turno: turno,
         status: true,
-        coordenacaoID: 1,
-        alunosIds: [],
-        disciplinasProfessores: [
-            {
-                professorId: "53269874100",
-                disciplinasIds: []
-            }
-        ]
+        coordenacaoID: 1
     };
 
     console.log('JSON a ser enviado:', JSON.stringify(turma, null, 2));

@@ -4,7 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const professorModal = document.getElementById('modalProfessor');
     const professorForm = document.getElementById('professorForm');
     const modalTitleProfessor = document.getElementById('modalTitleProfessor');
+    const fecharModalBtn = document.getElementById('fecharModal'); // Seleciona o botão de fechar
+    const disciplinaSelect = document.getElementById('disciplina'); // Seleciona o campo de disciplina
     let editProfessorId = null;
+
+    // Função para fechar o modal
+    fecharModalBtn.addEventListener('click', () => {
+        professorModal.style.display = 'none';
+    });
 
     // Carregar lista de professores
     const loadProfessores = async () => {
@@ -21,14 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 const nomeCompleto = `${professor.nome} ${professor.ultimoNome}`;
                 const row = document.createElement('tr');
 
-                //turmaDisciplinaProfessores.disciplina.nome
                 row.innerHTML = `
                     <td>${nomeCompleto}</td>
                     <td>${professor.cpf}</td>
                     <td>${professor.email}</td>
                     <td>
-                        <button class="editProfessorBtn" data-id="${professor.id}">Editar</button>
-                        <button class="deleteProfessorBtn" data-id="${professor.id}">Deletar</button>
+                        <button class="editProfessorBtn" data-cpf="${professor.cpf}">Editar</button>
+                        <button class="deleteProfessorBtn" data-cpf="${professor.cpf}">Deletar</button>
                     </td>
                 `;
                 tableBody.appendChild(row);
@@ -36,13 +42,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Adicionar eventos aos botões de edição e exclusão
             document.querySelectorAll('.editProfessorBtn').forEach(button => {
-                button.addEventListener('click', () => openEditProfessorModal(button.getAttribute('data-id')));
+                button.addEventListener('click', () => openEditProfessorModal(button.getAttribute('data-cpf')));
             });
             document.querySelectorAll('.deleteProfessorBtn').forEach(button => {
-                button.addEventListener('click', () => deleteProfessor(button.getAttribute('data-id')));
+                button.addEventListener('click', () => deleteProfessor(button.getAttribute('data-cpf')));
             });
         } catch (error) {
             console.error('Erro ao carregar professores:', error);
+        }
+    };
+
+    // Carregar disciplinas disponíveis no banco de dados
+    const loadDisciplinas = async () => {
+        try {
+            const response = await fetch(`${apiUrl}/disciplinas`); // URL para carregar disciplinas
+            if (!response.ok) {
+                throw new Error('Erro ao buscar disciplinas');
+            }
+            const disciplinas = await response.json();
+            disciplinaSelect.innerHTML = ''; // Limpa o select
+
+            disciplinas.forEach(disciplina => {
+                const option = document.createElement('option');
+                option.value = disciplina.id;
+                option.textContent = disciplina.nome;
+                disciplinaSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Erro ao carregar disciplinas:', error);
         }
     };
 
@@ -56,9 +83,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const professor = await response.json();
             modalTitleProfessor.textContent = 'Editar Professor';
             professorForm.nome.value = professor.nome;
+            professorForm.ultimoNome.value = professor.ultimoNome;
             professorForm.cpf.value = professor.cpf;
+            professorForm.genero.value = professor.genero;
+            professorForm.dataNascimento.value = professor.dataNascimento;
             professorForm.email.value = professor.email;
-            // Adicione outros campos conforme necessário
+
+            await loadDisciplinas(); // Carregar disciplinas antes de abrir o modal
+            professorForm.disciplina.value = professor.disciplina; // Seleciona a disciplina do professor
+
             editProfessorId = cpf;
             professorModal.style.display = 'block';
         } catch (error) {
@@ -70,9 +103,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateProfessor = async (cpf) => {
         const professorData = {
             nome: professorForm.nome.value,
+            ultimoNome: professorForm.ultimoNome.value,
             cpf: professorForm.cpf.value,
+            genero: professorForm.genero.value,
+            dataNascimento: professorForm.dataNascimento.value,
             email: professorForm.email.value,
-            // Adicione outros campos aqui
+            disciplina: professorForm.disciplina.value // Seleciona a disciplina
         };
 
         try {
@@ -117,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
             updateProfessor(editProfessorId); 
         }
     });
-
 
     loadProfessores();
 });

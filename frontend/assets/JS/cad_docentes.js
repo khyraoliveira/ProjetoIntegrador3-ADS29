@@ -1,3 +1,27 @@
+// Fetch para obter as disciplinas disponíveis no backend
+fetch('http://localhost:8080/disciplinas')
+    .then(response => response.json())
+    .then(data => {
+        const disciplinasContainer = document.getElementById('disciplinas-container');
+        data.forEach(disciplina => {
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `disciplina_${disciplina.id}`;
+            checkbox.value = disciplina.id;
+
+            const label = document.createElement('label');
+            label.htmlFor = `disciplina_${disciplina.id}`;
+            label.textContent = disciplina.nome;
+
+            // Adiciona a checkbox e o label ao container
+            disciplinasContainer.appendChild(checkbox);
+            disciplinasContainer.appendChild(label);
+            disciplinasContainer.appendChild(document.createElement('br')); // Quebra de linha
+        });
+    })
+    .catch(error => console.error('Erro ao carregar disciplinas:', error));
+
+// Evento de clique no botão salvar
 document.getElementById('salvar').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -5,35 +29,22 @@ document.getElementById('salvar').addEventListener('click', function(event) {
     const ultimoNome = document.getElementById('ultimoNome').value;
     const cpf = document.getElementById('cpf').value;
     const genero = document.getElementById('dc_genero').value;
-    const dataNascimento = document.getElementById('data_nascimento').value; // data no formato yyyy-MM-dd
+    const dataNascimento = document.getElementById('data_nascimento').value;
     const email = document.getElementById('email').value;
 
-    // Função para converter a data de yyyy-MM-dd para dd/MM/yyyy
-    function formatarDataParaBarras(data) {
-        const partes = data.split('-'); // Divide a data em [ano, mes, dia]
-        if (partes.length === 3) {
-            return `${partes[2]}/${partes[1]}/${partes[0]}`; // Retorna no formato dd/MM/yyyy
-        }
-        return null;
-    }
-
-    const dataNascimentoFormatada = formatarDataParaBarras(dataNascimento);
-
-    if (!dataNascimentoFormatada) {
-        alert('Data de nascimento inválida.');
-        return;
-    }
+    // Obter as disciplinas selecionadas (checkboxes marcadas)
+    const checkboxes = document.querySelectorAll('#disciplinas-container input[type="checkbox"]:checked');
+    const disciplinasSelecionadas = Array.from(checkboxes).map(checkbox => checkbox.value);
 
     const professor = {
         nome: nome,
         ultimoNome: ultimoNome,
         cpf: cpf,
         genero: genero,
-        data_nascimento: dataNascimentoFormatada, // Data formatada para dd/MM/yyyy
-        email: email
+        data_nascimento: dataNascimento,
+        email: email,
+        disciplinas: disciplinasSelecionadas // Enviar a lista de disciplinas selecionadas
     };
-
-    console.log('JSON a ser enviado:', JSON.stringify(professor, null, 2));
 
     // Enviar os dados via POST
     fetch('http://localhost:8080/professores', {
@@ -43,21 +54,14 @@ document.getElementById('salvar').addEventListener('click', function(event) {
         },
         body: JSON.stringify(professor)
     })
-    .then(response => {
-        if (!response.ok) {
-            return response.text().then(text => {
-                throw new Error(`Erro ao cadastrar professor: ${text}`);
-            });
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
         console.log('Professor cadastrado com sucesso:', data);
         alert('Professor cadastrado com sucesso!');
         window.location.href = 'docentes.html';
     })
     .catch(error => {
-        console.error('Erro:', error);
+        console.error('Erro ao cadastrar professor:', error);
         alert('Erro ao cadastrar professor.');
     });
 });

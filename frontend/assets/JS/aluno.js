@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeModalButton = document.getElementById('fecharModal'); // Botão para fechar o modal
     let editAlunoId = null;
 
+    // Função para carregar alunos da API
     const loadAlunos = async () => {
         try {
             const response = await fetch(`${apiUrl}/alunos`);
@@ -75,9 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const updateAluno = async (id, aluno) => {
         try {
-            console.log("ID do aluno para atualizar:", id);  // Verifica se o ID está sendo passado corretamente
-            console.log("Dados do aluno:", aluno);  // Verifica se os dados do aluno estão sendo enviados corretamente
-
             const response = await fetch(`${apiUrl}/alunos/${id}`, {
                 method: 'PUT',
                 headers: {
@@ -97,9 +95,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    // Função para carregar as turmas da API e preencher o select
+    const loadTurmas = async () => {
+        try {
+            const response = await fetch(`${apiUrl}/turmas`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar turmas');
+            }
+            const turmas = await response.json();
+            const turmaSelect = document.getElementById('turma');
+            turmaSelect.innerHTML = '<option value="">Selecione uma turma</option>'; // Limpa e adiciona uma opção padrão
+
+            turmas.forEach(turma => {
+                const option = document.createElement('option');
+                option.value = turma.id;
+                option.textContent = turma.nome;
+                turmaSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Erro ao carregar turmas:', error);
+        }
+    };
+
     const openEditAlunoModal = async (id) => {
         editAlunoId = id;
         modalTitleAluno.innerText = 'Editar Aluno';
+
+        // Carrega as turmas antes de abrir o modal
+        await loadTurmas();
 
         try {
             const response = await fetch(`${apiUrl}/alunos/${id}`);
@@ -108,42 +131,53 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             const aluno = await response.json();
 
+            console.log('Dados do aluno:', aluno); // Log para verificar os dados do aluno
+
             // Preenche os campos com os dados do aluno
-            document.getElementById('nome').value = aluno.nome;
-            document.getElementById('ultimoNome').value = aluno.ultimoNome;
-            document.getElementById('genero').value = aluno.genero;
-            document.getElementById('data_nascimento').value = aluno.data_nascimento;
-            document.getElementById('cpf').value = aluno.cpf;
-            document.getElementById('email').value = aluno.email;
+            document.getElementById('nome').value = aluno.nome || '';
+            document.getElementById('ultimoNome').value = aluno.ultimoNome || '';
+            document.getElementById('genero').value = aluno.genero || 'null';
+            document.getElementById('data_nascimento').value = aluno.data_nascimento || '';
+            document.getElementById('cpf').value = aluno.cpf || '';
+            document.getElementById('email').value = aluno.email || '';
 
             // Preenche os campos de endereço se existirem
             if (aluno.enderecos && aluno.enderecos.length > 0) {
-                document.getElementById('cep').value = aluno.enderecos[0].cep;
-                document.getElementById('rua').value = aluno.enderecos[0].rua;
-                document.getElementById('numero').value = aluno.enderecos[0].numero;
-                document.getElementById('bairro').value = aluno.enderecos[0].bairro;
-                document.getElementById('cidade').value = aluno.enderecos[0].cidade;
-                document.getElementById('estado').value = aluno.enderecos[0].estado;
+                const endereco = aluno.enderecos[0];
+                document.getElementById('cep').value = endereco.cep || '';
+                document.getElementById('rua').value = endereco.rua || '';
+                document.getElementById('numero').value = endereco.numero || '';
+                document.getElementById('bairro').value = endereco.bairro || '';
+                document.getElementById('cidade').value = endereco.cidade || '';
+                document.getElementById('estado').value = endereco.estado || '';
             }
 
             // Preenche os campos de telefone se existirem
             if (aluno.telefones && aluno.telefones.length > 0) {
-                document.getElementById('ddd').value = aluno.telefones[0].ddd;
-                document.getElementById('numero_telefone').value = aluno.telefones[0].numero;
+                const telefone = aluno.telefones[0];
+                document.getElementById('ddd').value = telefone.ddd || '';
+                document.getElementById('numero_telefone').value = telefone.numero || '';
             }
 
             // Preenche os dados do responsável se existirem
             if (aluno.responsaveis && aluno.responsaveis.length > 0) {
-                document.getElementById('responsavelNome').value = aluno.responsaveis[0].nome;
-                document.getElementById('responsavelUltimoNome').value = aluno.responsaveis[0].ultimoNome;
-                document.getElementById('cpfResponsavel').value = aluno.responsaveis[0].cpfResponsavel;
+                const responsavel = aluno.responsaveis[0];
+                document.getElementById('responsavelNome').value = responsavel.nome || '';
+                document.getElementById('responsavelUltimoNome').value = responsavel.ultimoNome || '';
+                document.getElementById('cpfResponsavel').value = responsavel.cpfResponsavel || '';
 
-                if (aluno.responsaveis[0].telefones && aluno.responsaveis[0].telefones.length > 0) {
-                    document.getElementById('dddResponsavel').value = aluno.responsaveis[0].telefones[0].ddd;
-                    document.getElementById('numeroResponsavel').value = aluno.responsaveis[0].telefones[0].numero;
+                if (responsavel.telefones && responsavel.telefones.length > 0) {
+                    const telefoneResponsavel = responsavel.telefones[0];
+                    document.getElementById('dddResponsavel').value = telefoneResponsavel.ddd || '';
+                    document.getElementById('numeroResponsavel').value = telefoneResponsavel.numero || '';
                 }
 
-                document.getElementById('grauParentesco').value = aluno.responsaveis[0].grauParentesco;
+                document.getElementById('grauParentesco').value = responsavel.grauParentesco || '';
+            }
+
+            // Seleciona a turma correta se o aluno já tiver uma associada
+            if (aluno.turmas && aluno.turmas.length > 0) {
+                document.getElementById('turma').value = aluno.turmas[0].id;
             }
 
             alunoModal.style.display = 'block'; // Abre o modal para edição
@@ -160,6 +194,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para submeter o formulário e atualizar o aluno
     alunoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        
 
         const alunoData = {
             nome: document.getElementById('nome').value,
