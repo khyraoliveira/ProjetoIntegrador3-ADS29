@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             await loadDisciplinas(); // Carregar disciplinas antes de abrir o modal
             professorForm.disciplina.value = professor.disciplina; // Seleciona a disciplina do professor
-
             editProfessorId = cpf;
             professorModal.style.display = 'block';
         } catch (error) {
