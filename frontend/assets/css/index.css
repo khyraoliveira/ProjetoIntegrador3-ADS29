@@ -1,40 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-body {
-    background-image: url(../images/Senac_Crato.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body{
+  background-color: #315067;
+  margin: 0;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.left-login{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.left-imglogin{
+  width: 60vw;
+  height: 75vh;
+  border-radius: 19px;
+  box-shadow: 0px 10px 40px #00000057;
+}
+
+.right-login{
+  width: 18vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .login {
     width: 359px;
     height: 510px;
     padding: 10px;
-    background-color: #e4e4e4;
+    background-color: #f9f9f9;
     border-radius: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 5px 5px 20px #000000;
-    
+    box-shadow: 0px 10px 40px #00000057;
+    outline: none;
     
 }
 
@@ -62,6 +75,7 @@ body {
     height: 33px;
     text-align: center;
     box-sizing: border-box;
+    outline: none;
 }
 
 .btn:hover{
@@ -70,6 +84,7 @@ body {
     color: #1b3754;
     background-color: #C6CAD0;
     border-color: #1b3754;
+    outline: none;
 }
 
 .esq a {
@@ -96,10 +111,12 @@ label input {
     height: 33px;
     font-size: 1rem;
     border-radius: 0 7px 7px 0;
+    background-color: #f9f9f9;;
     border: 1px solid #ced4da;
     box-sizing: border-box;
     padding: 0 10px;
     margin: 0;
+    outline: none;
 }
 
 label i {
@@ -192,11 +209,12 @@ label i {
 
   select {
     height: 24px;
-    border-radius: 13px;
+    border-radius: 8px;
     background-color: #F2F2F2;
     border: 1px solid #C7C7C7;
     padding: 0 8px;
     font-size: 14px;
     box-sizing: border-box;
     width: 359px;
+    outline: none;
 }
