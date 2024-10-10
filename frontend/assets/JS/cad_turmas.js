@@ -11,7 +11,7 @@ document.getElementById('salvar').addEventListener('click', function(event) {
         anoEscolar: anoEscolar,
         turno: turno,
         status: true,
-        coordenacaoID: 1
+        coordenacaoId: 1
     };
 
     console.log('JSON a ser enviado:', JSON.stringify(turma, null, 2));

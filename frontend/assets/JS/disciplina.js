@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Erro ao buscar disciplinas');
             }
             const disciplinas = await response.json();
+            console.log("Aqui")
+            console.log(disciplinas)
             const tableBody = document.querySelector('#listaDisciplinas');
             tableBody.innerHTML = '';
 
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${disciplina.nome}</td>
-                    <td>${disciplina.cargaHoraria ? disciplina.cargaHoraria : 'Sem carga horária'}</td>
+                    <td>${disciplina.carga_horaria ? disciplina.carga_horaria : 'Sem carga horária'}</td>
                     <td>${disciplina.nomeProfessor ? disciplina.nomeProfessor : 'Sem professor'}</td>
                     <td>
                         <button class="editDisciplinaBtn" data-id="${disciplina.id}">Editar</button>

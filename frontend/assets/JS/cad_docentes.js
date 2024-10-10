@@ -36,12 +36,31 @@ document.getElementById('salvar').addEventListener('click', function(event) {
     const checkboxes = document.querySelectorAll('#disciplinas-container input[type="checkbox"]:checked');
     const disciplinasSelecionadas = Array.from(checkboxes).map(checkbox => checkbox.value);
 
+    function formatarData(data) {
+        if (!data.includes('-')) {
+            return data; // Caso a data já esteja no formato desejado, retorna o valor como está
+        }
+        const partes = data.split('-');
+        if (partes.length === 3) {
+            return `${partes[2]}/${partes[1]}/${partes[0]}`;
+        } else {
+            return undefined; // Se o formato não estiver correto, retorna indefinido
+        }
+    }
+
+    const dataNascimentoFormatada = formatarData(dataNascimento);
+
+    if (!dataNascimentoFormatada) {
+        alert('Erro: Data de nascimento inválida.');
+        return; // Interrompe o fluxo se a data for inválida
+    }
+
     const professor = {
         nome: nome,
         ultimoNome: ultimoNome,
         cpf: cpf,
         genero: genero,
-        data_nascimento: dataNascimento,
+        data_nascimento: dataNascimentoFormatada,
         email: email,
         disciplinas: disciplinasSelecionadas // Enviar a lista de disciplinas selecionadas
     };
