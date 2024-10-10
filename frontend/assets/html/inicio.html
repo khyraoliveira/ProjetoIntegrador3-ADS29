@@ -5,82 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGE - Inicio</title>
     <link rel="stylesheet" href="../css/global.css">
-    
+    <link rel="icon" href="../images/favicon-144x144.png" type="image/png">
 </head>
 <body>
     <div class="container">
-    <!-- Header -->
-    <header class="barrasup">
-        <div class="icon-header">
-            <img src="../images/SGE-logo.png" alt="">
-        </div>
-    </header>
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <img src="../images/SGE-logo.png" alt="">
+            </div>
+        </header>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="btn-expand">
+                <i class="fa-solid fa-bars" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li class="item-menu ativo">
+                    <a href="inicio.html">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <span class="txt-link">Inicio</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="alunos.html">
+                        <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="txt-link">Alunos</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="docentes.html">
+                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <span class="txt-link">Docentes</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="turmas.html">
+                        <span class="icon"><i class="fa-solid fa-building-user"></i></span>
+                        <span class="txt-link">Turmas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="coordenador.html">
+                        <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+                        <span class="txt-link">Coordenadores</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Disciplinas</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="disciplinas.html">
+                        <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
+                        <span class="txt-link">Comunicados</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="comunicados.html">
+                        <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
+                        <span class="txt-link">Comunicados</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="../../index.html">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-               <!-- Navbar -->
-               <nav class="navbar">
-                <div class="btn-expand">
-                    <i class="fa-solid fa-bars" id="btn-exp"></i>
-                </div>
-                <ul>
-                    <li class="item-menu ativo">
-                        <a href="inicio.html">
-                            <span ><i class="fa-solid fa-house"></i></span>
-                            <span class="txt-link">Inicio</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="alunos.html">
-                            <span class="icon"><i class="fa-solid fa-user-graduate"></i></span>
-                            <span class="txt-link">Alunos</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="docentes.html">
-                            <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
-                            <span class="txt-link">Docentes</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="turmas.html">
-                            <span class="icon"><i class="fa-solid fa-building-user"></i></span>
-                            <span class="txt-link">Turmas</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="coordenador.html">
-                            <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
-                            <span class="txt-link">Coordenadores</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="disciplinas.html">
-                            <span class="icon"><i class="fa-solid fa-chalkboard"></i></span>
-                            <span class="txt-link">Disciplinas</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="comunicados.html">
-                            <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
-                            <span class="txt-link">Comunicados</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="../../index.html">
-                            <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
-                            <span class="txt-link">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-        <!-- Conteúdo Principal -->
-        <main class="content_in">
-            <h1>Bem-vindo ao Sistema</h1>
-            <p>Aqui você pode gerenciar os alunos, docentes e turmas.</p>
+        <main class="content">
+           
+            <!-- Tabela de Alunos -->
+            <div class="listaalunos">
+                <table border="1" id="tabelaAlunos">
+                    <thead>
+                        <tr>
+                            <th>Mural de Avisos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaComunicados">
+                        <!-- Dados serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </main>
-    </div>
-
+        
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/aluno.js"></script>
 </body>
 </html>

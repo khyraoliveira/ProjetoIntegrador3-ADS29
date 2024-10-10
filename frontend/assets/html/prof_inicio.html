@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGE - Inicio</title>
     <link rel="stylesheet" href="../css/global.css">
-    
+    <link rel="icon" href="../images/favicon-144x144.png" type="image/png">
 </head>
 <body>
     <div class="container">
-    <!-- Header -->
-    <header class="barrasup">
-        <div class="icon-header">
-            <img src="../images/SGE-logo.png" alt="">
-        </div>
-    </header>
-
-               <!-- Navbar -->
-               <nav class="navbar">
+        <!-- Header -->
+        <header class="barrasup">
+            <div class="icon-header">
+                <img src="../images/SGE-logo.png" alt="">
+            </div>
+        </header>
+              <!-- Navbar -->
+              <nav class="navbar">
                 <div class="btn-expand">
                     <i class="fa-solid fa-bars" id="btn-exp"></i>
                 </div>
@@ -28,15 +27,16 @@
                             <span class="txt-link">Inicio</span>
                         </a>
                     </li>
-                    <li class="item-menu">
+                    <li class="item-menu" id="drop-hover">
                         <a href="prof_turmas.html">
                             <span class="icon"><i class="fa-solid fa-building-user"></i></span>
                             <span class="txt-link">Turmas</span>
-
-                            <div class="drop">
-                                <a href="#">conceito</a>
-                            </div>
                         </a>
+                        <div class="drop">
+                            <a href="prof_nota.html">
+                                <span class="txt-link">Conceitos</span>
+                            </a>
+                        </div>
                     </li>
                     <li class="item-menu">
                         <a href="../../index.html">
@@ -46,15 +46,26 @@
                     </li>
                 </ul>
             </nav>
-            
-        <!-- Conteúdo Principal -->
-        <main class="content_in">
-            <h1>Bem-vindo ao Sistema de Professores</h1>
-            <p>Aqui você pode gerenciar o desempenho dos seus Alunos!</p>
-        </main>
-    </div>
 
+        <main class="content">
+           
+            <!-- Tabela de Alunos -->
+            <div class="listaalunos">
+                <table border="1" id="tabelaAlunos">
+                    <thead>
+                        <tr>
+                            <th>Mural de Avisos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaComunicados">
+                        <!-- Dados serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
     <script src="../JS/navbar.js"></script>
     <script src="https://kit.fontawesome.com/1c98dd5571.js" crossorigin="anonymous"></script>
+    <script src="../JS/aluno.js"></script>
 </body>
 </html>

@@ -116,6 +116,21 @@ ul li.item-menu a .icon > i {
     }
 }
 
+#drop-hover{
+    position: relative;
+}
+
+#drop-hover .drop{
+    display: none;
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+}
+
+#drop-hover:hover .drop{
+    display: block;
+}
+
 
 main.content {
     display: flex;
