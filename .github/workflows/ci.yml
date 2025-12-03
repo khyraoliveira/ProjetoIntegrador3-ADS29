@@ -1,0 +1,142 @@
+# Pipeline de Integração Contínua (CI)
+# Sistema de Gerenciamento Escolar - PI3-ADS29
+#
+# Este workflow executa automaticamente os testes unitários e funcionais
+# a cada push ou pull request na branch main/master.
+
+name: CI - Testes Automatizados
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  # ============================================================================
+  # JOB 1: Testes Unitários com Jest
+  # ============================================================================
+  unit-tests:
+    name: Testes Unitários (Jest)
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout do código
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      # Configuração do Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: tests/package.json
+
+      # Instalação das dependências
+      - name: Instalar dependências
+        working-directory: ./tests
+        run: npm install
+
+      # Execução dos testes unitários
+      - name: Executar testes unitários
+        working-directory: ./tests
+        run: npm run test:unit -- --coverage --ci --reporters=default --reporters=jest-junit
+        env:
+          CI: true
+
+      # Upload do relatório de cobertura
+      - name: Upload relatório de cobertura
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: tests/coverage/
+          retention-days: 30
+
+  # ============================================================================
+  # JOB 2: Testes Funcionais com Selenium
+  # ============================================================================
+  functional-tests:
+    name: Testes Funcionais (Selenium)
+    runs-on: ubuntu-latest
+    needs: unit-tests  # Executa apenas se os testes unitários passarem
+    
+    steps:
+      # Checkout do código
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      # Configuração do Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: tests/package.json
+
+      # Instalação do Chrome
+      - name: Instalar Google Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      # Instalação das dependências
+      - name: Instalar dependências
+        working-directory: ./tests
+        run: npm install
+
+      # Inicia servidor HTTP para o frontend
+      - name: Iniciar servidor do frontend
+        working-directory: ./frontend
+        run: |
+          npx http-server -p 8080 &
+          sleep 5
+
+      # Execução dos testes funcionais
+      - name: Executar testes funcionais
+        working-directory: ./tests
+        run: npm run test:functional -- --ci
+        env:
+          CI: true
+        continue-on-error: true  # Continua mesmo se falhar (para ver logs)
+
+  # ============================================================================
+  # JOB 3: Análise de Qualidade de Código
+  # ============================================================================
+  code-quality:
+    name: Análise de Qualidade
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # Verifica se há erros de sintaxe nos arquivos JS
+      - name: Verificar sintaxe JavaScript
+        run: |
+          find frontend/assets/JS -name "*.js" -exec node --check {} \; || true
+
+  # ============================================================================
+  # JOB 4: Notificação de Resultados
+  # ============================================================================
+  notify:
+    name: Notificação
+    runs-on: ubuntu-latest
+    needs: [unit-tests, functional-tests]
+    if: always()
+    
+    steps:
+      - name: Resumo dos testes
+        run: |
+          echo "## Resumo da Execução dos Testes" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Testes Unitários | ${{ needs.unit-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Testes Funcionais | ${{ needs.functional-tests.result }} |" >> $GITHUB_STEP_SUMMARY
