@@ -21,7 +21,7 @@ module.exports = {
   coverageDirectory: './coverage',
   
   // Configuração de setup antes dos testes
-  setupFilesAfterEnv: ['./setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/setup.js'],
   
   // Timeout para testes (útil para testes funcionais)
   testTimeout: 30000,
